@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/sidemenu"
+        android:icon="@drawable/ic_menu_24dp"
+        android:title="@string/sidemenu"
+        android:contentDescription="@string/content_description_sidemenu"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/translatelam"
+        android:icon="@drawable/ic_translate_24dp"
+        android:title="@string/settings"
+        android:contentDescription="@string/content_description_search"
+        app:showAsAction="always"
+        />
+    <!--
+        <item
+            android:id="@+id/notification"
+            android:icon="@drawable/ic_notification_24dp"
+            android:title="@string/notify"
+            android:contentDescription="@string/content_description_notify"
+            app:showAsAction="always"
+            />
+
+        <item
+            android:id="@+id/share"
+            android:icon="@drawable/ic_share2_24dp"
+            android:title="@string/share"
+            android:contentDescription="@string/content_description_share"
+            app:showAsAction="always"
+            />
+      -->
+
+
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search_24dp"
+        android:title="@string/search"
+        android:contentDescription="@string/content_description_search"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home_24dp"
+        android:title="@string/home"
+        android:contentDescription="@string/content_description_home"
+        app:showAsAction="always"
+        />
+
+</menu>

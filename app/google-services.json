@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "144421212322",
+    "project_id": "pinpotha---beta",
+    "storage_bucket": "pinpotha---beta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144421212322:android:63c0486b58df0329af07fb",
+        "android_client_info": {
+          "package_name": "com.app.pinpotha_beta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144421212322-pc7outmq0jumjr0a8sujncrv5arj7n1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxH9L7lNjSbLJbF7D7UwksyWzVT9Ac0qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144421212322-pc7outmq0jumjr0a8sujncrv5arj7n1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

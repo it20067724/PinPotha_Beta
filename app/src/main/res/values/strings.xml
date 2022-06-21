@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name" translatable="false">PinPotha - Beta</string>
+    <string name="app_version" translatable="false">App Version : 1.0</string>
+    <!--Bottom Nav  !-->
+    <string name="add" translatable="false">Add</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="content_description_home" translatable="false">Home</string>
+    <string name="search" translatable="false">Search</string>
+    <string name="content_description_search" translatable="false">Search</string>
+    <string name="sidemenu" translatable="false">Side Menu</string>
+    <string name="content_description_sidemenu" translatable="false">Side Menu</string>
+    <!--END Bottom Nav  !-->
+
+    <!--Side Menu Nav  !-->
+    <string name="sign_out" translatable="false">Sign Out</string>
+    <string name="about" translatable="false">About</string>
+    <string name="help">Help</string>
+    <string name="invite" translatable="false">Invite Friends</string>
+    <string name="made_with" translatable="false">Made with </string>
+    <string name="in" translatable="false">in</string>
+    <string name="community" translatable="false">Community</string>
+    <string name="settings" translatable="false">Settings</string>
+    <string name="log_out" translatable="false">Log Out</string>
+    <string name="notify" translatable="false">Notification</string>
+    <string name="content_description_notify" translatable="false">Notification</string>
+    <string name="share" translatable="false">Share</string>
+    <string name="content_description_share" translatable="false">Share</string>
+    <!--END Side Menu Nav   !-->
+
+    <!--Translate  !-->
+    <string name="translate" translatable="false">Change Language</string>
+    <string name="btn_eng" translatable="false">English</string>
+    <string name="btn_sin" translatable="false">සිංහල</string>
+    <string name="btn_tam" translatable="false">தமிழ்</string>
+    <!--END Translate   !-->
+
+    <!--Add Record!-->
+    <string name="add_record" translatable="false">Add new Record</string>
+    <string name="date" translatable="false">Date *</string>
+    <string name="description" translatable="false">Description</string>
+    <!--END Add Record !-->
+
+    <string name="anonymous" translatable="false">Anonymous</string>
+
+
+</resources>
