@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import com.app.pinpotha_beta.R;
+import com.app.pinpotha_beta.ui.ketayam.LoadingDialog;
 import com.app.pinpotha_beta.ui.records.AddRecord;
+import com.app.pinpotha_beta.ui.records.ViewRecord;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -31,6 +33,8 @@ public class ProfileActivity extends AppCompatActivity {
         // Assign variable
         bottomAppBar=findViewById(R.id.bottomAppBar);
         faButton=findViewById(R.id.fActionbtn);
+        LoadingDialog loadingDialog=new LoadingDialog(ProfileActivity.this);
+        loadingDialog.startLoader();
 
         // Initialize firebase auth
         firebaseAuth=FirebaseAuth.getInstance();

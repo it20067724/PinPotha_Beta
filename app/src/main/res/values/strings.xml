@@ -41,6 +41,11 @@
     <!--END Add Record !-->
 
     <string name="anonymous" translatable="false">Anonymous</string>
+    <string name="loading" translatable="false">Loading</string>
+    <string name="update" translatable="false">Update</string>
+    <string name="delete" translatable="false">Delete</string>
+
+
 
 
 </resources>
