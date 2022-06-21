@@ -116,6 +116,15 @@ public class EditRecord extends AppCompatActivity {
             }
         });
 
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String fbUser=firebaseUser.getUid();
+                deleteFromFirestore(fbUser,id);
+            }
+        });
+
         deldate.setOnClickListener(new View.OnClickListener() {
             @NonNull
             @Override
@@ -157,8 +166,29 @@ public class EditRecord extends AppCompatActivity {
         });
     }
 
+    private void deleteFromFirestore(String fbuser, String id) {
+        db.collection("user/"+fbuser+"/pina/").document(id)
+                .delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(EditRecord.this,"Record Deleted",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getApplicationContext()
+                                , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        overridePendingTransition(0, 0);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(EditRecord.this,"Record Delete fail",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+    }
+
     private void updateToFirestore(String recDate, String recdisc, String fbuser, String id) {
-   db.collection("user/"+fbuser+"/pina/").document(id)
+      db.collection("user/"+fbuser+"/pina/").document(id)
            .update("date",recDate,"desc",recdisc)
            .addOnCompleteListener(new OnCompleteListener<Void>() {
                @Override
