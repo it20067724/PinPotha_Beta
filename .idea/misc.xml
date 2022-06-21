@@ -13,17 +13,19 @@
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/ic_menu_24dp.xml" value="0.121" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/ic_search_24.xml" value="0.2555" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/ic_search_24dp.xml" value="0.2545" />
+        <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/ic_splash_back.xml" value="0.2555" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/ic_translate_24dp.xml" value="0.129" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/menu-24px.xml" value="0.2555" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/notifications-24px.xml" value="0.231" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/settings-24px.xml" value="0.2" />
+        <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/drawable/splash_corner.xml" value="0.2555" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_about.xml" value="0.234375" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_add_record.xml" value="0.264" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_communiuty.xml" value="0.234375" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_edit_record.xml" value="0.2" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_help.xml" value="0.234375" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_logout.xml" value="0.2359375" />
-        <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_main.xml" value="0.2151268115942029" />
+        <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_search.xml" value="0.25" />
         <entry key="..\:/Projects/Android/PinPothaBeta/app/src/main/res/layout/activity_settings.xml" value="0.25" />
