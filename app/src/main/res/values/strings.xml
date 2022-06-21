@@ -44,6 +44,11 @@
     <string name="loading" translatable="false">Loading</string>
     <string name="update" translatable="false">Update</string>
     <string name="delete" translatable="false">Delete</string>
+    <string name="welcome" translatable="false">Welcome</string>
+    <string name="hello" translatable="false">Record your good Deeds</string>
+    <string name="seamless" translatable="false">Seamlessly</string>
+
+
 
 
 

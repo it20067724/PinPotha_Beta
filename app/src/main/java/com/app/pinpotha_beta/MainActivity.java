@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btSignIn=findViewById(R.id.bt_sign_in);
+        btSignIn.setColorScheme(SignInButton.COLOR_AUTO);
 
         // Initialize sign in options
         // the client-id is copied form
