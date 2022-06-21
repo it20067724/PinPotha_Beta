@@ -35,7 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(mList.get(position).getTitle());
-        holder.id.setText(mList.get(position).getId());
+    //    holder.id.setText(mList.get(position).getId());
         holder.subtitle.setText(mList.get(position).getSubtitle());
         holder.decription.setText(mList.get(position).getDecription());
         holder.date.setText(mList.get(position).getDate());
@@ -69,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            id= itemView.findViewById(R.id.cardduid);
+         //   id= itemView.findViewById(R.id.cardduid);
             title= itemView.findViewById(R.id.cardTitle);
             subtitle= itemView.findViewById(R.id.cardsubtitle);
             decription= itemView.findViewById(R.id.carddescription);

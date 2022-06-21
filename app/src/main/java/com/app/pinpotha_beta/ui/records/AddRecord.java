@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
@@ -43,6 +46,7 @@ public class AddRecord extends AppCompatActivity {
     final Calendar myCalendar = Calendar.getInstance();
     Button btn_add;
     FirebaseFirestore db;
+    Spinner mainCat,subCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,62 @@ public class AddRecord extends AppCompatActivity {
         description= findViewById(R.id.descriptiondata);
         btn_add=findViewById(R.id.btn_add);
         setToday();
+        mainCat=(Spinner) findViewById(R.id.mainspinner);
+        subCat=(Spinner) findViewById(R.id.subspinner);
+
+        ArrayAdapter<CharSequence> mainType
+                = ArrayAdapter.createFromResource(
+                this, R.array.main_type,
+                android.R.layout.simple_spinner_item);
+        mainType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mainCat.setAdapter(mainType);
+
+        //set sub types
+        ArrayAdapter<CharSequence> subType1
+                = ArrayAdapter.createFromResource(
+                this, R.array.sub_type1,
+                android.R.layout.simple_spinner_item);
+        subType1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<CharSequence> subType2
+                = ArrayAdapter.createFromResource(
+                this, R.array.sub_type2,
+                android.R.layout.simple_spinner_item);
+        subType2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+
+        //end set sub types
+        ArrayAdapter<CharSequence> not_available
+                = ArrayAdapter.createFromResource(
+                this, R.array.not_avilable,
+                android.R.layout.simple_spinner_item);
+        not_available.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        //child spinner logic
+        mainCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if (position == 0) {
+                    subCat.setAdapter(subType1);
+                }
+                else if(position==1){
+                    subCat.setAdapter(subType2);
+                }
+                else{
+                    subCat.setAdapter(not_available);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        //end child spinner
+
         db=FirebaseFirestore.getInstance();
 
         // Initialize firebase auth
@@ -105,9 +165,11 @@ public class AddRecord extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String recDate=deldate.getText().toString();
+                String recMain=(String) mainCat.getSelectedItem();
+                String recSub=(String) subCat.getSelectedItem();
                 String recdisc=description.getText().toString();
                 String fbUser=firebaseUser.getUid();
-                saveToFirestore(recDate,recdisc,fbUser);
+                saveToFirestore(recDate,recdisc,recMain,recSub,fbUser);
 
             }
         });
@@ -146,10 +208,13 @@ public class AddRecord extends AppCompatActivity {
         });
     }
 
-    private void saveToFirestore(String recDate, String recdisc,String fbuser) {
+    private void saveToFirestore(String recDate, String recdisc,String recMain,String recSub,String fbuser) {
         //validate fields are empty
+        //getCounterMaxLength
 
         HashMap<String,Object> map= new HashMap<>();
+        map.put("main",recMain);
+        map.put("sub",recSub);
         map.put("date",recDate);
         map.put("desc",recdisc);
         Log.d("path:","user/"+fbuser+"/pina/");
