@@ -13,7 +13,6 @@ import android.widget.DatePicker;
 import android.widget.Toast;
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
-import com.app.pinpotha_beta.ui.bottom_bar.Search;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
 import com.app.pinpotha_beta.util.TimeData;
@@ -107,9 +106,8 @@ public class AddRecord extends AppCompatActivity {
             public void onClick(View view) {
                 String recDate=deldate.getText().toString();
                 String recdisc=description.getText().toString();
-                String uid= UUID.randomUUID().toString();
                 String fbUser=firebaseUser.getUid();
-                saveToFirestore(recDate,recdisc,uid,fbUser);
+                saveToFirestore(recDate,recdisc,fbUser);
 
             }
         });
@@ -140,7 +138,7 @@ public class AddRecord extends AppCompatActivity {
 
                 case R.id.search:
                     startActivity(new Intent(getApplicationContext()
-                            , Search.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                            , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     overridePendingTransition(0, 0);
                     return true;
             }
@@ -148,11 +146,10 @@ public class AddRecord extends AppCompatActivity {
         });
     }
 
-    private void saveToFirestore(String recDate, String recdisc, String uid,String fbuser) {
+    private void saveToFirestore(String recDate, String recdisc,String fbuser) {
         //validate fields are empty
 
         HashMap<String,Object> map= new HashMap<>();
-        map.put("id",uid);
         map.put("date",recDate);
         map.put("desc",recdisc);
         Log.d("path:","user/"+fbuser+"/pina/");
@@ -161,14 +158,14 @@ public class AddRecord extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
 
-                        Toast.makeText(AddRecord.this,"Record added",Toast.LENGTH_SHORT);
+                        Toast.makeText(AddRecord.this,"Record added",Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
-                        Toast.makeText(AddRecord.this,"Record add fail",Toast.LENGTH_SHORT);
+                        Toast.makeText(AddRecord.this,"Record add fail",Toast.LENGTH_LONG).show();
                     }
                 });
 

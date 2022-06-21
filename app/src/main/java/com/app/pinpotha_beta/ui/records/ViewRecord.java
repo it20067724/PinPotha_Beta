@@ -1,5 +1,6 @@
 package com.app.pinpotha_beta.ui.records;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,14 +15,23 @@ import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
 import com.app.pinpotha_beta.ui.bottom_bar.Search;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
+import com.app.pinpotha_beta.ui.ketayam.LoadingDialog;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewRecord extends AppCompatActivity {
 
@@ -31,6 +41,8 @@ public class ViewRecord extends AppCompatActivity {
     FirebaseFirestore db;
     RecyclerView recyclerView;
     FloatingActionButton faButton;
+    private MyAdapter adapter;
+    private List<Model> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +53,7 @@ public class ViewRecord extends AppCompatActivity {
         bottomAppBar=findViewById(R.id.bottomAppBar);
         recyclerView=findViewById(R.id.recyclerview);
         db=FirebaseFirestore.getInstance();
+
 
         // Initialize firebase auth
         firebaseAuth=FirebaseAuth.getInstance();
@@ -59,8 +72,15 @@ public class ViewRecord extends AppCompatActivity {
         googleSignInClient= GoogleSignIn.getClient(ViewRecord.this
                 , GoogleSignInOptions.DEFAULT_SIGN_IN);
 
-        recyclerView.setHasFixedSize(true);
+      //  recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        list=new ArrayList<>();
+        adapter=new MyAdapter(this,list);
+        recyclerView.setAdapter(adapter);
+
+        showData(firebaseUser.getUid());
+
+
 
         faButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,10 +119,37 @@ public class ViewRecord extends AppCompatActivity {
             }
             return false;
         });
+
     }
 
-
-
+    private void showData(String fbuser) {
+        LoadingDialog loadingDialog=new LoadingDialog(ViewRecord.this);
+        loadingDialog.startLoader();
+        db.collection("user/"+fbuser+"/pina/").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        list.clear();
+                        for(DocumentSnapshot snapshot: task.getResult()){
+                            Model model= new Model();
+                            model.setId(snapshot.getId());
+                            model.setDate(snapshot.getString("date"));
+                            model.setDecription(snapshot.getString("desc"));
+                            model.setSubtitle("N/A");
+                            model.setTitle("N/A");
+                            list.add(model);
+                        }
+                        adapter.notifyDataSetChanged();
+                        loadingDialog.stopLoader();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(ViewRecord.this,"OOPS .... something weong",Toast.LENGTH_SHORT).show();
+                    }
+                });
+        loadingDialog.stopLoader();
+    }
 
 
 }
