@@ -33,8 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
         // Assign variable
         bottomAppBar=findViewById(R.id.bottomAppBar);
         faButton=findViewById(R.id.fActionbtn);
-        LoadingDialog loadingDialog=new LoadingDialog(ProfileActivity.this);
-        loadingDialog.startLoader();
+
 
         // Initialize firebase auth
         firebaseAuth=FirebaseAuth.getInstance();

@@ -39,12 +39,12 @@ import java.util.Locale;
 
 public class EditRecord extends AppCompatActivity {
 
-    private TextView txt;
+
     String id,title,subtitle,decription,date;
     FirebaseAuth firebaseAuth;
     GoogleSignInClient googleSignInClient;
     BottomAppBar bottomAppBar;
-    TextInputEditText deldate, description;
+    TextInputEditText deldate, description,mainCat,subCat;
     final Calendar myCalendar = Calendar.getInstance();
     Button btn_update,btn_delete;
     FirebaseFirestore db;
@@ -53,13 +53,17 @@ public class EditRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_record);
-        txt = findViewById(R.id.idx);
+
         bottomAppBar = findViewById(R.id.bottomAppBar);
         deldate = findViewById(R.id.lbl_edit_date);
         deldate.setInputType(0);
         description = findViewById(R.id.edit_descriptiondata);
         btn_update = findViewById(R.id.btn_update);
         btn_delete = findViewById(R.id.btn_delete);
+        mainCat= findViewById(R.id.edit_main_cat);
+        mainCat.setEnabled(false);
+        subCat= findViewById(R.id.edit_subcat);
+        subCat.setEnabled(false);
 
         db = FirebaseFirestore.getInstance();
 
@@ -86,12 +90,13 @@ public class EditRecord extends AppCompatActivity {
         if (bundle != null) {
             id = bundle.getString("id");
             title= bundle.getString("title");
-              subtitle= bundle.getString("subtitle");
+            subtitle= bundle.getString("subtitle");
             decription= bundle.getString("desc");
             date= bundle.getString("date");
-            txt.setText(id);
             deldate.setText(date);
             description.setText(decription);
+            mainCat.setText(title);
+                    subCat.setText(subtitle);
         }
 
         DatePickerDialog.OnDateSetListener datedialog = new DatePickerDialog.OnDateSetListener() {
