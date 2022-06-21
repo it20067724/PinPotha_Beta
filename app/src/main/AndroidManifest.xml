@@ -31,6 +31,9 @@
             android:name=".ui.records.AddRecord"
             android:exported="false" />
         <activity
+            android:name=".ui.records.ViewRecord"
+            android:exported="false" />
+        <activity
             android:name=".ui.bottom_bar.Search"
             android:exported="false" />
         <activity

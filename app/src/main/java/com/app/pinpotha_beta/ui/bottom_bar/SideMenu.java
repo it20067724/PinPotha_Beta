@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.app.pinpotha_beta.MainActivity;
 import com.app.pinpotha_beta.R;
+import com.app.pinpotha_beta.ui.ketayam.LoadingDialog;
 import com.app.pinpotha_beta.ui.records.AddRecord;
 import com.app.pinpotha_beta.ui.side_bar.About;
 import com.app.pinpotha_beta.ui.side_bar.Communiuty;
@@ -86,7 +87,8 @@ public class SideMenu extends AppCompatActivity {
             //getUid() returns the unique id at db
 
         }
-
+        LoadingDialog loadingDialog=new LoadingDialog(SideMenu.this);
+        loadingDialog.startLoader();
 
         googleSignInClient= GoogleSignIn.getClient(SideMenu.this
                 , GoogleSignInOptions.DEFAULT_SIGN_IN);
@@ -194,5 +196,6 @@ public class SideMenu extends AppCompatActivity {
             }
             return false;
         });
+        loadingDialog.stopLoader();
     }
     }
