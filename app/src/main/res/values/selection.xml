@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_type" >
+        <item>@string/dana</item>
+        <item>@string/sila</item>
+        <item>@string/apchayana</item>
+    </string-array>
+
+    <string-array name="sub_type1">
+        <item>@string/offer_budda</item>
+        <item>@string/offer_sanga</item>
+        <item>@string/darma_dana</item>
+    </string-array>
+
+    <string-array name="sub_type2">
+        <item>@string/pancha_sila</item>
+        <item>@string/brahmachari</item>
+        <item>@string/ashtanga_sila</item>
+        <item>@string/nawanga_sila</item>
+        <item>@string/dasa_sila</item>
+    </string-array>
+
+    <string-array name="not_avilable">
+        <item>@string/na</item>
+
+    </string-array>
+
+
+</resources>

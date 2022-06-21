@@ -29,13 +29,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="1dp"
-                android:text="@string/add_record"
+                android:text="@string/edit_record"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
                 android:layout_weight="1"  />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lbl_maincat"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_main_cat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/mainCat" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1"  />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lblsubcat"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_subcat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/subCat" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1"  />
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lbleditdate"
@@ -51,26 +94,7 @@
                     android:hint="@string/date" />
 
             </com.google.android.material.textfield.TextInputLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:layout_weight="1"  />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/lbldescription"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_descriptiondata"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:hint="@string/description" />
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <Space
                 android:layout_width="match_parent"
@@ -83,10 +107,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="75"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/idx"
+                    android:id="@+id/edit_descriptiondata"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"

@@ -123,8 +123,7 @@ public class ViewRecord extends AppCompatActivity {
     }
 
     private void showData(String fbuser) {
-        LoadingDialog loadingDialog=new LoadingDialog(ViewRecord.this);
-        loadingDialog.startLoader();
+
         db.collection("user/"+fbuser+"/pina/").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -135,12 +134,12 @@ public class ViewRecord extends AppCompatActivity {
                             model.setId(snapshot.getId());
                             model.setDate(snapshot.getString("date"));
                             model.setDecription(snapshot.getString("desc"));
-                            model.setSubtitle("N/A");
-                            model.setTitle("N/A");
+                            model.setSubtitle(snapshot.getString("sub"));
+                            model.setTitle(snapshot.getString("main"));
                             list.add(model);
                         }
                         adapter.notifyDataSetChanged();
-                        loadingDialog.stopLoader();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -148,7 +147,7 @@ public class ViewRecord extends AppCompatActivity {
                         Toast.makeText(ViewRecord.this,"OOPS .... something weong",Toast.LENGTH_SHORT).show();
                     }
                 });
-        loadingDialog.stopLoader();
+
     }
 
 

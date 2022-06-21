@@ -25,6 +25,7 @@
 
 
 
+
             <TextView
                 android:id="@+id/addrec"
                 android:layout_width="match_parent"
@@ -32,6 +33,45 @@
                 android:layout_marginHorizontal="1dp"
                 android:text="@string/add_record"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1"  />
+
+
+            <TextView
+                android:id="@+id/maincat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mainCat" />
+
+            <Spinner
+                    android:id="@+id/mainspinner"
+                    android:layout_width="match_parent"
+                android:layout_weight="1"
+                    android:layout_height="48dp" />
+
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_weight="1"  />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/subCat" />
+
+            <Spinner
+                android:id="@+id/subspinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+
 
             <Space
                 android:layout_width="match_parent"
@@ -62,6 +102,9 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="75"
+
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -69,7 +112,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
-                    android:hint="@string/description" />
+                    android:hint="@string/description"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="50"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

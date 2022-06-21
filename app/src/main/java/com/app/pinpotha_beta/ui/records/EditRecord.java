@@ -39,12 +39,12 @@ import java.util.Locale;
 
 public class EditRecord extends AppCompatActivity {
 
-    private TextView txt;
+
     String id,title,subtitle,decription,date;
     FirebaseAuth firebaseAuth;
     GoogleSignInClient googleSignInClient;
     BottomAppBar bottomAppBar;
-    TextInputEditText deldate, description;
+    TextInputEditText deldate, description,mainCat,subCat;
     final Calendar myCalendar = Calendar.getInstance();
     Button btn_update,btn_delete;
     FirebaseFirestore db;
@@ -53,13 +53,17 @@ public class EditRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_record);
-        txt = findViewById(R.id.idx);
+
         bottomAppBar = findViewById(R.id.bottomAppBar);
         deldate = findViewById(R.id.lbl_edit_date);
         deldate.setInputType(0);
         description = findViewById(R.id.edit_descriptiondata);
         btn_update = findViewById(R.id.btn_update);
         btn_delete = findViewById(R.id.btn_delete);
+        mainCat= findViewById(R.id.edit_main_cat);
+        mainCat.setEnabled(false);
+        subCat= findViewById(R.id.edit_subcat);
+        subCat.setEnabled(false);
 
         db = FirebaseFirestore.getInstance();
 
@@ -86,12 +90,13 @@ public class EditRecord extends AppCompatActivity {
         if (bundle != null) {
             id = bundle.getString("id");
             title= bundle.getString("title");
-              subtitle= bundle.getString("subtitle");
+            subtitle= bundle.getString("subtitle");
             decription= bundle.getString("desc");
             date= bundle.getString("date");
-            txt.setText(id);
             deldate.setText(date);
             description.setText(decription);
+            mainCat.setText(title);
+                    subCat.setText(subtitle);
         }
 
         DatePickerDialog.OnDateSetListener datedialog = new DatePickerDialog.OnDateSetListener() {
@@ -113,6 +118,15 @@ public class EditRecord extends AppCompatActivity {
 
                 String fbUser=firebaseUser.getUid();
                 updateToFirestore(recDate,recdisc,fbUser,id);
+            }
+        });
+
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String fbUser=firebaseUser.getUid();
+                deleteFromFirestore(fbUser,id);
             }
         });
 
@@ -157,8 +171,29 @@ public class EditRecord extends AppCompatActivity {
         });
     }
 
+    private void deleteFromFirestore(String fbuser, String id) {
+        db.collection("user/"+fbuser+"/pina/").document(id)
+                .delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(EditRecord.this,"Record Deleted",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getApplicationContext()
+                                , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        overridePendingTransition(0, 0);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(EditRecord.this,"Record Delete fail",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+    }
+
     private void updateToFirestore(String recDate, String recdisc, String fbuser, String id) {
-   db.collection("user/"+fbuser+"/pina/").document(id)
+      db.collection("user/"+fbuser+"/pina/").document(id)
            .update("date",recDate,"desc",recdisc)
            .addOnCompleteListener(new OnCompleteListener<Void>() {
                @Override
