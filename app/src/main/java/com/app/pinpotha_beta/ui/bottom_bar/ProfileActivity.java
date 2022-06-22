@@ -3,13 +3,14 @@ package com.app.pinpotha_beta.ui.bottom_bar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import com.app.pinpotha_beta.R;
-import com.app.pinpotha_beta.ui.ketayam.LoadingDialog;
 import com.app.pinpotha_beta.ui.records.AddRecord;
-import com.app.pinpotha_beta.ui.records.ViewRecord;
+import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,6 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     BottomAppBar bottomAppBar;
     FloatingActionButton faButton;
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,5 +91,18 @@ public class ProfileActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

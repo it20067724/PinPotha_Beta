@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
+import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
 import com.app.pinpotha_beta.util.TimeData;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -47,6 +50,7 @@ public class AddRecord extends AppCompatActivity {
     Button btn_add;
     FirebaseFirestore db;
     Spinner mainCat,subCat;
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,6 +210,19 @@ public class AddRecord extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
     private void saveToFirestore(String recDate, String recdisc,String recMain,String recSub,String fbuser) {
