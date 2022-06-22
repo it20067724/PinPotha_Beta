@@ -76,6 +76,16 @@
         android:textAppearance="?attr/textAppearanceHeadline4"
         android:text="@string/seamless" />
 
+    <ProgressBar
+        android:id="@+id/progressBarlogin"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/loaderback"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/bt_sign_in"
         android:layout_width="match_parent"
