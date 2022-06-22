@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,12 +15,12 @@ import android.widget.Toast;
 
 import com.app.pinpotha_beta.MainActivity;
 import com.app.pinpotha_beta.R;
-import com.app.pinpotha_beta.ui.ketayam.LoadingDialog;
 import com.app.pinpotha_beta.ui.records.AddRecord;
 import com.app.pinpotha_beta.ui.side_bar.About;
 import com.app.pinpotha_beta.ui.side_bar.Communiuty;
 import com.app.pinpotha_beta.ui.side_bar.Help;
 import com.app.pinpotha_beta.ui.side_bar.Settings;
+import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
 import com.app.pinpotha_beta.util.TimeData;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -41,6 +43,7 @@ public class SideMenu extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     BottomAppBar bottomAppBar;
     FloatingActionButton faButton;
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +90,7 @@ public class SideMenu extends AppCompatActivity {
             //getUid() returns the unique id at db
 
         }
-        LoadingDialog loadingDialog=new LoadingDialog(SideMenu.this);
-        loadingDialog.startLoader();
+
 
         googleSignInClient= GoogleSignIn.getClient(SideMenu.this
                 , GoogleSignInOptions.DEFAULT_SIGN_IN);
@@ -196,6 +198,19 @@ public class SideMenu extends AppCompatActivity {
             }
             return false;
         });
-        loadingDialog.stopLoader();
+
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
     }

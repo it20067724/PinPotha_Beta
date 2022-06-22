@@ -44,6 +44,18 @@
 
     <!--END Add Record !-->
 
+    <!--Start No Connection !-->
+    <string name="oops" translatable="false">Ooops !</string>
+    <string name="no_int" translatable="false">No Internet Connection Found. </string>
+    <string name="chk_con" translatable="false">Check your Connection.</string>
+    <string name="try_again" translatable="false">Try Again</string>
+    <!--END  No Connection  !-->
+
+
+    <!--Start  !-->
+    <!--END    !-->
+
+
     <string name="anonymous" translatable="false">Anonymous</string>
     <string name="loading" translatable="false">Loading</string>
     <string name="update" translatable="false">Update</string>

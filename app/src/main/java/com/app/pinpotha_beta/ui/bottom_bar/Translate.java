@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.records.AddRecord;
+import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
 import com.app.pinpotha_beta.util.localeHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,6 +33,7 @@ public class Translate extends AppCompatActivity {
     FloatingActionButton faButton;
     RadioGroup langRadio;
     RadioButton radioButton;
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +101,19 @@ public class Translate extends AppCompatActivity {
             return false;
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
     @SuppressLint("NonConstantResourceId")
