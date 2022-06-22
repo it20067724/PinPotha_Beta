@@ -52,6 +52,11 @@
     <!--END  No Connection  !-->
 
 
+    <!--Start  under development!-->
+    <string name="launching_soon" translatable="false">We are Launching Soon!</string>
+    <string name="working_on" translatable="false">We are Currently working on this Option.</string>
+    <!--END  under development   !-->
+
     <!--Start  !-->
     <!--END    !-->
 
