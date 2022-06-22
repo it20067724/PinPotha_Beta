@@ -4,6 +4,7 @@ package com.app.pinpotha_beta;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     SignInButton btSignIn;
     GoogleSignInClient googleSignInClient;
     FirebaseAuth firebaseAuth;
+    ProgressBar pbar;
 
 
     @Override
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btSignIn=findViewById(R.id.bt_sign_in);
         btSignIn.setColorScheme(SignInButton.COLOR_AUTO);
+        pbar=findViewById(R.id.progressBarlogin);
 
         // Initialize sign in options
         // the client-id is copied form
@@ -54,12 +57,15 @@ public class MainActivity extends AppCompatActivity {
                 ,googleSignInOptions);
 
         btSignIn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                pbar.setVisibility(View.VISIBLE);
                 // Initialize sign in intent
                 Intent intent=googleSignInClient.getSignInIntent();
                 // Start activity for result
                 startActivityForResult(intent,100);
+
             }
         });
 
@@ -81,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         // Check condition
         if(requestCode==100)
         {
@@ -144,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+            pbar.setVisibility(View.GONE);
         }
     }
 
