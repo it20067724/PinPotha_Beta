@@ -2,6 +2,8 @@ package com.app.pinpotha_beta;
 
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -11,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
+import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     FirebaseAuth firebaseAuth;
     ProgressBar pbar;
-
+    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +83,22 @@ public class MainActivity extends AppCompatActivity {
             // redirect to profile activity
             startActivity(new Intent(MainActivity.this, ProfileActivity.class)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            pbar.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
     @Override
@@ -151,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-            pbar.setVisibility(View.GONE);
+
         }
     }
 

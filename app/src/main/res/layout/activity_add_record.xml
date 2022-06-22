@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".ui.records.AddRecord">
     <!-- Note: A RecyclerView can also be used -->
@@ -24,8 +23,6 @@
             android:orientation="vertical">
 
 
-
-
             <TextView
                 android:id="@+id/addrec"
                 android:layout_width="match_parent"
@@ -38,7 +35,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
-                android:layout_weight="1"  />
+                android:layout_weight="1" />
 
 
             <TextView
@@ -48,17 +45,16 @@
                 android:text="@string/mainCat" />
 
             <Spinner
-                    android:id="@+id/mainspinner"
-                    android:layout_width="match_parent"
-                android:layout_weight="1"
-                    android:layout_height="48dp" />
-
+                android:id="@+id/mainspinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="1" />
 
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
-                android:layout_weight="1"  />
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -72,11 +68,10 @@
                 android:layout_height="48dp" />
 
 
-
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
-                android:layout_weight="1"  />
+                android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lbldate"
@@ -92,10 +87,11 @@
                     android:hint="@string/date" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
-                android:layout_weight="1"  />
+                android:layout_weight="1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/description"
@@ -111,17 +107,17 @@
                     android:id="@+id/descriptiondata"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
                     android:hint="@string/description"
+                    android:inputType="textMultiLine"
                     app:counterEnabled="true"
-                    app:counterMaxLength="50"/>
+                    app:counterMaxLength="50" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp"
-                android:layout_weight="1"  />
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/btn_add"
@@ -134,13 +130,12 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-        app:menu="@menu/bottom_app_bar"
         app:fabAlignmentMode="end"
-        />
+        app:menu="@menu/bottom_app_bar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fActionbtn"
