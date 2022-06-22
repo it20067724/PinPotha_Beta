@@ -10,23 +10,32 @@
     android:padding="16dp"
     tools:context=".ui.side_bar.About">
 
-    <androidx.core.widget.NestedScrollView
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="100dp"
+        android:text="@string/working_on"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceHeadline5" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="about" />
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    <ImageView
+        android:id="@+id/available_soon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:srcCompat="@drawable/available_soon" />
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/launching_soon"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceHeadline4" />
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
