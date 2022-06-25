@@ -41,18 +41,16 @@
         tools:ignore="ContentDescription" />
 
 
-
-
     <TextView
         android:id="@+id/welcome"
-        android:layout_above="@id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome"
+        android:layout_above="@id/hello"
         android:layout_marginHorizontal="34dp"
         android:layout_marginBottom="1dp"
-        android:textColor="@color/black"
-        android:textAppearance="?attr/textAppearanceHeadline3"/>
+        android:text="@string/welcome"
+        android:textAppearance="?attr/textAppearanceHeadline3"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/hello"

@@ -7,10 +7,12 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.records.AddRecord;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
+import com.app.pinpotha_beta.util.TimeData;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -27,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
     BottomAppBar bottomAppBar;
     FloatingActionButton faButton;
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
+    TextView greeting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
         // Assign variable
         bottomAppBar=findViewById(R.id.bottomAppBar);
         faButton=findViewById(R.id.fActionbtn);
+        greeting=findViewById(R.id.greeting);
 
 
         // Initialize firebase auth
@@ -52,6 +56,12 @@ public class ProfileActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "User Not Avialable", Toast.LENGTH_SHORT).show();
         }
 
+        greeting.setText(TimeData.getGreeting(firebaseUser.getDisplayName(),
+                getString(R.string.good_morning),
+                getString(R.string.good_afternoon),
+                getString(R.string.good_evening),
+                getString(R.string.good_night)
+        ));
 
         // Initialize sign in client
         googleSignInClient= GoogleSignIn.getClient(ProfileActivity.this

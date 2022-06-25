@@ -52,6 +52,21 @@
     <!--END  No Connection  !-->
 
 
+    <!--Start  under development!-->
+    <string name="launching_soon" translatable="false">We are Launching Soon!</string>
+    <string name="working_on" translatable="false">We are Currently working on this Option.</string>
+    <!--END  under development   !-->
+
+    <!--Start Home Page !-->
+
+    <string name="welcome_back" translatable="false">Welcome Back !</string>
+    <string name="good_morning" translatable="false">Good Morning ,</string>
+    <string name="good_afternoon" translatable="false">Good Afternoon ,</string>
+    <string name="good_evening" translatable="false">Good Evening ,</string>
+    <string name="good_night" translatable="false">Good Night ,</string>
+    <!--END   Home Page !-->
+
+
     <!--Start  !-->
     <!--END    !-->
 
