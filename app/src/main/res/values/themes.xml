@@ -24,6 +24,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="ShapeAppearanceOverlay.App.CircleImageV" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
     <style name="Theme.PinPothaBeta.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.PinPothaBeta.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
