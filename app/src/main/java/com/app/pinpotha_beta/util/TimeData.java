@@ -42,7 +42,7 @@ public class TimeData {
         int hour = cal.get(Calendar.HOUR_OF_DAY);
         if(hour>= 12 && hour < 17){
             greeting = afternoon+" "+name[0];
-        } else if(hour >= 17 && hour < 21){
+        } else if(hour >= 16 && hour < 21){
             greeting = evening+" "+name[0];
         } else if(hour >= 21 && hour < 24){
             greeting = night+" "+name[0];
