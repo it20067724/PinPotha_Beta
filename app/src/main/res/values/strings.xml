@@ -42,6 +42,7 @@
     <string name="mainCat" translatable="false">Main Category</string>
     <string name="subCat" translatable="false">Sub Category</string>
     <string name="edit_record" translatable="false">Edit Record</string>
+    <string name="error_msg_mandatory" translatable="false">Please fill this field</string>
 
     <!--END Add Record !-->
 
@@ -67,6 +68,11 @@
     <string name="good_night" translatable="false">Good Night ,</string>
     <!--END   Home Page !-->
 
+    <!--Start  Delete Record!-->
+    <string name="msg_are_u_sure" translatable="false">Are You Sure ?</string>
+    <string name="msg_confirm_delete" translatable="false">Do you really want to delete this record?</string>
+    <string name="msg_confirm_delete_canot_be_undone" translatable="false">This process cannot be undone</string>
+    <!--END  Delete Record  !-->
 
     <!--Start  !-->
     <!--END    !-->
@@ -80,14 +86,15 @@
     <string name="hello" translatable="false">Record your good Deeds</string>
     <string name="seamless" translatable="false">Seamlessly</string>
     <string name="na" translatable="false">N/A</string>
-
+    <string name="btn_yes" translatable="false">Yes</string>
+    <string name="btn_no" translatable="false">No</string>
     <!--Dropdown Main!-->
 
     <string name="dana" translatable="false">Dana</string>
     <string name="sila" translatable="false">Sila</string>
     <string name="apchayana" translatable="false">Apachayana</string>
 
-    <!--END Add Record !-->
+    <!--END Dropdown Main !-->
 
     <!--Dropdown Sub 1!-->
     <string name="offer_budda" translatable="false">Offerings For Buddha</string>
