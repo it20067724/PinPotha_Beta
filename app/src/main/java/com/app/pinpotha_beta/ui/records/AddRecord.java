@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
@@ -45,12 +46,12 @@ public class AddRecord extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     GoogleSignInClient googleSignInClient;
     BottomAppBar bottomAppBar;
-    TextInputEditText deldate,description;
+    TextInputEditText recdate, description;
     final Calendar myCalendar = Calendar.getInstance();
     Button btn_add;
     FirebaseFirestore db;
-    Spinner mainCat,subCat;
-    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
+    Spinner mainCat, subCat;
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +59,14 @@ public class AddRecord extends AppCompatActivity {
         setContentView(R.layout.activity_add_record);
 
         // Assign variable
-        bottomAppBar=findViewById(R.id.bottomAppBar);
-        deldate = findViewById(R.id.deldate);
-        deldate.setInputType(0);
-        description= findViewById(R.id.descriptiondata);
-        btn_add=findViewById(R.id.btn_add);
+        bottomAppBar = findViewById(R.id.bottomAppBar);
+        recdate = findViewById(R.id.deldate);
+        recdate.setInputType(0);
+        description = findViewById(R.id.descriptiondata);
+        btn_add = findViewById(R.id.btn_add);
         setToday();
-        mainCat=(Spinner) findViewById(R.id.mainspinner);
-        subCat=(Spinner) findViewById(R.id.subspinner);
+        mainCat = (Spinner) findViewById(R.id.mainspinner);
+        subCat = (Spinner) findViewById(R.id.subspinner);
 
         ArrayAdapter<CharSequence> mainType
                 = ArrayAdapter.createFromResource(
@@ -88,7 +89,6 @@ public class AddRecord extends AppCompatActivity {
         subType2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
-
         //end set sub types
         ArrayAdapter<CharSequence> not_available
                 = ArrayAdapter.createFromResource(
@@ -103,11 +103,9 @@ public class AddRecord extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 if (position == 0) {
                     subCat.setAdapter(subType1);
-                }
-                else if(position==1){
+                } else if (position == 1) {
                     subCat.setAdapter(subType2);
-                }
-                else{
+                } else {
                     subCat.setAdapter(not_available);
                 }
             }
@@ -120,32 +118,30 @@ public class AddRecord extends AppCompatActivity {
 
         //end child spinner
 
-        db=FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // Initialize firebase auth
-        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
         // Initialize firebase user
-        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         // Check condition
-        if(firebaseUser!=null)
-        {
+        if (firebaseUser != null) {
             //load details
-        }
-        else{
+        } else {
             Toast.makeText(getApplicationContext(), "User Not Avialable", Toast.LENGTH_SHORT).show();
         }
-        Log.d("uid:",firebaseUser.getUid().trim());
+        Log.d("uid:", firebaseUser.getUid().trim());
         // Initialize sign in client
-        googleSignInClient= GoogleSignIn.getClient(AddRecord.this
+        googleSignInClient = GoogleSignIn.getClient(AddRecord.this
                 , GoogleSignInOptions.DEFAULT_SIGN_IN);
 
         DatePickerDialog.OnDateSetListener datedialog = new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-          myCalendar.set(Calendar.YEAR,year);
+                myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, month);
                 myCalendar.set(Calendar.DAY_OF_MONTH, day);
                 updateLabel();
@@ -153,14 +149,14 @@ public class AddRecord extends AppCompatActivity {
         };
 
 
-        deldate.setOnClickListener(new View.OnClickListener() {
+        recdate.setOnClickListener(new View.OnClickListener() {
             @NonNull
             @Override
             public void onClick(View view) {
                 new DatePickerDialog(AddRecord.this, datedialog, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-                Toast.makeText(AddRecord.this,"btn clicked",Toast.LENGTH_SHORT);
+                Toast.makeText(AddRecord.this, "btn clicked", Toast.LENGTH_SHORT);
             }
 
         });
@@ -168,13 +164,14 @@ public class AddRecord extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String recDate=deldate.getText().toString();
-                String recMain=(String) mainCat.getSelectedItem();
-                String recSub=(String) subCat.getSelectedItem();
-                String recdisc=description.getText().toString();
-                String fbUser=firebaseUser.getUid();
-                saveToFirestore(recDate,recdisc,recMain,recSub,fbUser);
-
+                String recDate = recdate.getText().toString();
+                String recMain = (String) mainCat.getSelectedItem();
+                String recSub = (String) subCat.getSelectedItem();
+                String recdisc = description.getText().toString();
+                String fbUser = firebaseUser.getUid();
+                if (CheckAllFields()) {
+                    saveToFirestore(recDate, recdisc, recMain, recSub, fbUser);
+                }
             }
         });
 
@@ -182,7 +179,7 @@ public class AddRecord extends AppCompatActivity {
         // deldate.getText().toString(),
         //deldate.setError(getString(R.string.error_msg_mandatory));
 
-        bottomAppBar.setOnMenuItemClickListener(menuItem->{
+        bottomAppBar.setOnMenuItemClickListener(menuItem -> {
             switch (menuItem.getItemId()) {
                 case R.id.sidemenu:
                     startActivity(new Intent(getApplicationContext()
@@ -214,8 +211,8 @@ public class AddRecord extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        registerReceiver(networkChangeListener,filter);
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, filter);
         super.onStart();
     }
 
@@ -225,31 +222,32 @@ public class AddRecord extends AppCompatActivity {
         super.onStop();
     }
 
-    private void saveToFirestore(String recDate, String recdisc,String recMain,String recSub,String fbuser) {
+    private void saveToFirestore(String recDate, String recdisc, String recMain, String recSub, String fbuser) {
         //validate fields are empty
         //getCounterMaxLength
 
-        HashMap<String,Object> map= new HashMap<>();
-        map.put("main",recMain);
-        map.put("sub",recSub);
-        map.put("date",recDate);
-        map.put("desc",recdisc);
-        Log.d("path:","user/"+fbuser+"/pina/");
-        db.collection("user/"+fbuser+"/pina/").add(map)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("main", recMain);
+            map.put("sub", recSub);
+            map.put("date", recDate);
+            map.put("desc", recdisc);
+            Log.d("path:", "user/" + fbuser + "/pina/");
+            db.collection("user/" + fbuser + "/pina/").add(map)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
 
-                        Toast.makeText(AddRecord.this,"Record added",Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AddRecord.this, "Record added", Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
 
-                        Toast.makeText(AddRecord.this,"Record add fail",Toast.LENGTH_LONG).show();
-                    }
-                });
+                            Toast.makeText(AddRecord.this, "Record add fail", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
 
     }
 
@@ -257,11 +255,20 @@ public class AddRecord extends AppCompatActivity {
         String datePattern = "dd-MM-yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(datePattern, Locale.getDefault());
 
-        deldate.setText(sdf.format(myCalendar.getTime()));
+        recdate.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void setToday() {
-        deldate.setText(TimeData.getToday());
+
+        recdate.setText(TimeData.getToday());
+    }
+
+    private boolean CheckAllFields() {
+        if (recdate.length() == 0) {
+            recdate.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+        return true;
     }
 
 }
