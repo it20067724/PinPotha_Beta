@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "144421212322-kc2eginimj6h5dmm1cufirb28rtl662f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.pinpotha_beta",
+            "certificate_hash": "51dfe2e659ae922166116e20513031b7e8be6fab"
+          }
+        },
+        {
           "client_id": "144421212322-pc7outmq0jumjr0a8sujncrv5arj7n1s.apps.googleusercontent.com",
           "client_type": 3
         }

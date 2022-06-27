@@ -37,6 +37,7 @@
     <!--Add Record!-->
     <string name="add_record" translatable="false">Add new Record</string>
     <string name="date" translatable="false">Date *</string>
+    <string name="date2" translatable="false">Date :</string>
     <string name="description" translatable="false">Description</string>
     <string name="mainCat" translatable="false">Main Category</string>
     <string name="subCat" translatable="false">Sub Category</string>
