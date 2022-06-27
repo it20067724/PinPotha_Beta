@@ -10,6 +10,15 @@
     android:padding="16dp"
     tools:context=".ui.records.ViewRecord">
 
+    <ProgressBar
+        android:id="@+id/progressBarview"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/loaderback"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"

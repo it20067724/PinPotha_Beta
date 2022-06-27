@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.app.pinpotha_beta.R;
@@ -17,6 +18,7 @@ import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
 import com.app.pinpotha_beta.ui.bottom_bar.Search;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
+import com.app.pinpotha_beta.ui.ketayam.LoadingDialog;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -45,7 +47,10 @@ public class ViewRecord extends AppCompatActivity {
     FloatingActionButton faButton;
     private MyAdapter adapter;
     private List<Model> list;
+    ProgressBar pbar;
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,7 @@ public class ViewRecord extends AppCompatActivity {
         faButton=findViewById(R.id.fActionbtn);
         bottomAppBar=findViewById(R.id.bottomAppBar);
         recyclerView=findViewById(R.id.recyclerview);
+        pbar=findViewById(R.id.progressBarview);
         db=FirebaseFirestore.getInstance();
 
 
@@ -80,7 +86,7 @@ public class ViewRecord extends AppCompatActivity {
         list=new ArrayList<>();
         adapter=new MyAdapter(this,list);
         recyclerView.setAdapter(adapter);
-
+        pbar.setVisibility(View.VISIBLE);
         showData(firebaseUser.getUid());
 
 
@@ -156,7 +162,7 @@ public class ViewRecord extends AppCompatActivity {
                             list.add(model);
                         }
                         adapter.notifyDataSetChanged();
-
+                        pbar.setVisibility(View.GONE);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -164,6 +170,7 @@ public class ViewRecord extends AppCompatActivity {
                         Toast.makeText(ViewRecord.this,"OOPS .... something weong",Toast.LENGTH_SHORT).show();
                     }
                 });
+
 
     }
 

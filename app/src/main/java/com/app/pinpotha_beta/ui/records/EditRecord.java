@@ -3,7 +3,9 @@ package com.app.pinpotha_beta.ui.records;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -189,25 +191,45 @@ public class EditRecord extends AppCompatActivity {
     }
 
     private void deleteFromFirestore(String fbuser, String id) {
-        db.collection("user/"+fbuser+"/pina/").document(id)
-                .delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(EditRecord.this,"Record Deleted",Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext()
-                                , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                        overridePendingTransition(0, 0);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(EditRecord.this,"Record Delete fail",Toast.LENGTH_LONG).show();
-                    }
-                });
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.msg_are_u_sure));
+        builder.setMessage((getString(R.string.msg_confirm_delete)
+                +" "+
+                (getString(R.string.msg_confirm_delete_canot_be_undone))));
+        builder.setPositiveButton(R.string.btn_yes, new DialogInterface.OnClickListener() {
 
-    }
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                db.collection("user/"+fbuser+"/pina/").document(id)
+                        .delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(EditRecord.this,"Record Deleted",Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(getApplicationContext()
+                                        , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                overridePendingTransition(0, 0);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(EditRecord.this,"Record Delete fail",Toast.LENGTH_LONG).show();
+                            }
+                        });
+            }
+        });
+        builder.setNegativeButton(R.string.btn_no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+
+
+    };
 
     private void updateToFirestore(String recDate, String recdisc, String fbuser, String id) {
       db.collection("user/"+fbuser+"/pina/").document(id)
