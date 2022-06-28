@@ -1,9 +1,11 @@
 package com.app.pinpotha_beta.util;
 
 import android.os.Build;
+import android.util.Log;
 
 
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -13,8 +15,8 @@ import java.util.Date;
 
 public class TimeData {
 
-    public static String getEpochTime(Long epoch){
-        String fin_Time="";
+    public static String getEpochTime(Long epoch) {
+        String fin_Time = "";
         LocalDateTime ldt = Instant.ofEpochMilli(epoch)
                 .atZone(ZoneId.systemDefault()).toLocalDateTime();
         System.out.println(ldt);
@@ -23,32 +25,50 @@ public class TimeData {
         fin_Time = ldt.format(formatter);
 
         return fin_Time;
-            }
+    }
 
-            public static String getToday(){
-                LocalDateTime myDateobj = LocalDateTime.now();
-                DateTimeFormatter myformatobj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    public static String getToday() {
+        LocalDateTime myDateobj = LocalDateTime.now();
+        DateTimeFormatter myformatobj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-                String timeStamp = myDateobj.format(myformatobj);
-                return timeStamp;
-            }
+        String timeStamp = myDateobj.format(myformatobj);
+        return timeStamp;
+    }
 
-    public static String getGreeting(String user,String morning,String afternoon,String evening,String night){
-        String greeting="";
-        String[] name=user.split(" ");
+    public static String getGreeting(String user, String morning, String afternoon, String evening, String night) {
+        String greeting = "";
+        String[] name = user.split(" ");
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int hour = cal.get(Calendar.HOUR_OF_DAY);
-        if(hour>= 12 && hour < 17){
-            greeting = afternoon+" "+name[0];
-        } else if(hour >= 17 && hour < 21){
-            greeting = evening+" "+name[0];
-        } else if(hour >= 21 && hour < 24){
-            greeting = night+" "+name[0];
+        if (hour >= 12 && hour < 17) {
+            greeting = afternoon + " " + name[0];
+        } else if (hour >= 17 && hour < 21) {
+            greeting = evening + " " + name[0];
+        } else if (hour >= 21 && hour < 24) {
+            greeting = night + " " + name[0];
         } else {
-            greeting = morning+" "+name[0];
+            greeting = morning + " " + name[0];
         }
         return greeting;
     }
+
+    public static boolean CompareTwoDates(String StartDate, String EndDate) throws ParseException {
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        Date d1 = sdformat.parse(StartDate);
+        Date d2 = sdformat.parse(EndDate);
+        Log.d("search","Inside StartDate:"+StartDate+",EndDate:"+EndDate);
+        if(d1.compareTo(d2) > 0) {
+            //Date 1 occurs after Date 2"
+
+            return false;
+        } else //Both dates are equal
+            if(d1.compareTo(d2) < 0) {
+            //Date 1 occurs before Date 2"
+
+            return true;
+        } else return d1.compareTo(d2) == 0;
+    }
+
 }
