@@ -14,11 +14,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
+import com.app.pinpotha_beta.ui.bottom_bar.Search;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
@@ -52,6 +54,7 @@ public class AddRecord extends AppCompatActivity {
     FirebaseFirestore db;
     Spinner mainCat, subCat;
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +67,11 @@ public class AddRecord extends AppCompatActivity {
         recdate.setInputType(0);
         description = findViewById(R.id.descriptiondata);
         btn_add = findViewById(R.id.btn_add);
+        imageView= findViewById(R.id.new_rec_icon);
         setToday();
         mainCat = (Spinner) findViewById(R.id.mainspinner);
         subCat = (Spinner) findViewById(R.id.subspinner);
+        imageView.setVisibility(View.GONE);
 
         ArrayAdapter<CharSequence> mainType
                 = ArrayAdapter.createFromResource(
@@ -88,6 +93,30 @@ public class AddRecord extends AppCompatActivity {
                 android.R.layout.simple_spinner_item);
         subType2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        ArrayAdapter<CharSequence> subType3
+                = ArrayAdapter.createFromResource(
+                this, R.array.sub_type3,
+                android.R.layout.simple_spinner_item);
+        subType3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<CharSequence> subType4
+                = ArrayAdapter.createFromResource(
+                this, R.array.sub_type4,
+                android.R.layout.simple_spinner_item);
+        subType4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<CharSequence> subType5
+                = ArrayAdapter.createFromResource(
+                this, R.array.sub_type5,
+                android.R.layout.simple_spinner_item);
+        subType5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<CharSequence> subType6
+                = ArrayAdapter.createFromResource(
+                this, R.array.sub_type6,
+                android.R.layout.simple_spinner_item);
+        subType6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
         //end set sub types
         ArrayAdapter<CharSequence> not_available
@@ -105,6 +134,15 @@ public class AddRecord extends AppCompatActivity {
                     subCat.setAdapter(subType1);
                 } else if (position == 1) {
                     subCat.setAdapter(subType2);
+                    imageView.setVisibility(View.VISIBLE);
+                } else if (position == 2) {
+                    subCat.setAdapter(subType3);
+                } else if (position == 3) {
+                    subCat.setAdapter(subType4);
+                } else if (position == 4) {
+                    subCat.setAdapter(subType5);
+                } else if (position == 5) {
+                    subCat.setAdapter(subType6);
                 } else {
                     subCat.setAdapter(not_available);
                 }
@@ -156,7 +194,7 @@ public class AddRecord extends AppCompatActivity {
                 new DatePickerDialog(AddRecord.this, datedialog, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-                Toast.makeText(AddRecord.this, "btn clicked", Toast.LENGTH_SHORT);
+
             }
 
         });
@@ -201,7 +239,7 @@ public class AddRecord extends AppCompatActivity {
 
                 case R.id.search:
                     startActivity(new Intent(getApplicationContext()
-                            , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                            , Search.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     overridePendingTransition(0, 0);
                     return true;
             }
@@ -226,27 +264,27 @@ public class AddRecord extends AppCompatActivity {
         //validate fields are empty
         //getCounterMaxLength
 
-            HashMap<String, Object> map = new HashMap<>();
-            map.put("main", recMain);
-            map.put("sub", recSub);
-            map.put("date", recDate);
-            map.put("desc", recdisc);
-            Log.d("path:", "user/" + fbuser + "/pina/");
-            db.collection("user/" + fbuser + "/pina/").add(map)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("main", recMain);
+        map.put("sub", recSub);
+        map.put("date", recDate);
+        map.put("desc", recdisc);
+        Log.d("path:", "user/" + fbuser + "/pina/");
+        db.collection("user/" + fbuser + "/pina/").add(map)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
 
-                            Toast.makeText(AddRecord.this, "Record added", Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddRecord.this, "Record added", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
 
-                            Toast.makeText(AddRecord.this, "Record add fail", Toast.LENGTH_LONG).show();
-                        }
-                    });
+                        Toast.makeText(AddRecord.this, "Record add fail", Toast.LENGTH_LONG).show();
+                    }
+                });
 
 
     }

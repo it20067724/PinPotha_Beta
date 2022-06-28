@@ -74,40 +74,85 @@
     <string name="msg_confirm_delete_canot_be_undone" translatable="false">This process cannot be undone</string>
     <!--END  Delete Record  !-->
 
+    <!--Start  Search!-->
+    <string name="start_date" translatable="false">Select Start to Search</string>
+    <string name="end_date" translatable="false">Select End Date to Search</string>
+    <string name="error_msg_invalid_date" translatable="false">Please select a date before End Date</string>
+    <string name="label_no_data" translatable="false">No Data Found</string>
+
+    <!--END  Search  !-->
+
     <!--Start  !-->
     <!--END    !-->
+
+
 
 
     <string name="anonymous" translatable="false">Anonymous</string>
     <string name="loading" translatable="false">Loading</string>
     <string name="update" translatable="false">Update</string>
     <string name="delete" translatable="false">Delete</string>
-    <string name="welcome" translatable="false">Welcome</string>
+    <string name="welcome">Welcome</string>
     <string name="hello" translatable="false">Record your good Deeds</string>
     <string name="seamless" translatable="false">Seamlessly</string>
-    <string name="na" translatable="false">N/A</string>
+    <string name="na">N/A</string>
     <string name="btn_yes" translatable="false">Yes</string>
     <string name="btn_no" translatable="false">No</string>
+
     <!--Dropdown Main!-->
-
-    <string name="dana" translatable="false">Dana</string>
-    <string name="sila" translatable="false">Sila</string>
-    <string name="apchayana" translatable="false">Apachayana</string>
-
+    <string name="dana">"Dana "</string>
+    <string name="sila">Sila</string>
+    <string name="apachayana">Apachayana</string>
+    <string name="veyyavachcha">Veiyavachcha</string>
+    <string name="darmadeshana">Dharma Deshana</string>
+    <string name="dittigukamma">Dittijukamma</string>
+    <string name="meditation">Bhavana</string>
+    <string name="darmashrawana">Dhamma Shravana</string>
+    <string name="prapthi_dana">Prapthi dana</string>
+    <string name="paththanumodana">"Paththanumodana "</string>
+    <string name="other">Other</string>
     <!--END Dropdown Main !-->
 
-    <!--Dropdown Sub 1!-->
-    <string name="offer_budda" translatable="false">Offerings For Buddha</string>
-    <string name="offer_sanga" translatable="false">Offerings for Sangha</string>
-    <string name="darma_dana" translatable="false">Offerings for layperson</string>
+    <!--Dropdown Sub 1 (dana)!-->
+    <string name="offer_budda">Offerings to the Lord Buddha</string>
+    <string name="offer_sanga">Offerings to the Sangha</string>
+    <string name="anugraha_dana">Alms to Laypeople</string>
+    <string name="darma_dana">Alms of Dhamma</string>
+    <string name="abhaya_dana">Alms of Life </string>
     <!--END Dropdown Sub 1 !-->
 
-    <!--Dropdown Sub 2!-->
-    <string name="pancha_sila" translatable="false">Observing Five precepts</string>
-    <string name="brahmachari" translatable="false">Brahmachari</string>
-    <string name="ashtanga_sila" translatable="false">Observing Eight precepts</string>
-    <string name="nawanga_sila" translatable="false">Observing Nine precepts</string>
-    <string name="dasa_sila" translatable="false">Observing Ten precepts</string>
+    <!--Dropdown Sub 2 (sila)!-->
+    <string name="pancha_sila">Observance of Five Precepts</string>
+    <string name="brahmachari">Observance of Celibate Five Precepts</string>
+    <string name="ashtanga_sila">Observance of Eight Precepts</string>
+    <string name="nawanga_sila">Observance of Eight Precepts</string>
+    <string name="dasa_sila">Observance of Ten Precepts</string>
     <!--END Dropdown Sub 2 !-->
 
+    <!--Dropdown Sub 3 (apachayana)!-->
+    <string name="budda_vandana">Paying Reverence to the Lord Buddha</string>
+    <string name="sangha_vandana">Paying Reverence to the Sangha</string>
+    <string name="sacred_place_vandana">Paying Reverence to the Sacred Places</string>
+    <string name="mapiya_vandana">Paying Reverence to the Parents</string>
+    <!--END Dropdown Sub 3 !-->
+
+    <!--Dropdown Sub 4 (veyyavachcha)!-->
+    <string name="budda_upastana">Serving the Lord Buddha</string>
+    <string name="sangha_upastana"> Serving the Sangha</string>
+    <string name="sasana_upastana">Serving the Sasana</string>
+    <string name="mapiya_upastana">Serving the Parents</string>
+    <string name="gihi_upastana">Serving the Laypeople</string>
+    <string name="shrama_dana">Serving the Lay Society</string>
+    <!--END Dropdown Sub 4 !-->
+
+    <!--Dropdown Sub 5 (darmadeshana)!-->
+    <string name="deshana_dayakathwa">Sponsoring of Dhamma Sermons</string>
+    <string name="teaching_damma">Teaching Dhamma</string>
+    <!--END Dropdown Sub 5 !-->
+
+    <!--Dropdown Sub 6 (dittigukamma)!-->
+    <string name="damma_studies">Dhamma Studies</string>
+    <string name="damma_sakachcha">Dhamma Discussions</string>
+    <string name="damma_manasikara">Contemplation of Dhamma </string>
+    <!--END Dropdown Sub 6 !-->
 </resources>

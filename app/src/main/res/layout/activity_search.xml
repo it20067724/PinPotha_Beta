@@ -10,32 +10,62 @@
     android:padding="16dp"
     tools:context=".ui.bottom_bar.Search">
 
-    <TextView
-        android:id="@+id/textView9"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="100dp"
-        android:text="@string/working_on"
-        android:textAlignment="center"
-        android:textAppearance="?attr/textAppearanceHeadline5" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp">
 
-    <ImageView
-        android:id="@+id/available_soon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:srcCompat="@drawable/available_soon" />
-
-
-    <TextView
-        android:id="@+id/textView8"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/launching_soon"
-        android:textAlignment="center"
-        android:textAppearance="?attr/textAppearanceHeadline4" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lbl_startdate_search"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_calender_24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/startdate_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/start_date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_weight="1" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lbl_enddate_search"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_calender_24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enddate_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/end_date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_searchrec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/search" />
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
