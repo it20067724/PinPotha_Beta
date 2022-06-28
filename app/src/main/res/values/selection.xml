@@ -3,13 +3,24 @@
     <string-array name="main_type" >
         <item>@string/dana</item>
         <item>@string/sila</item>
-        <item>@string/apchayana</item>
+        <item>@string/apachayana</item>
+        <item>@string/veyyavachcha</item>
+        <item>@string/darmadeshana</item>
+        <item>@string/dittigukamma</item>
+        <item>@string/meditation</item>
+        <item>@string/darmashrawana</item>
+        <item>@string/prapthi_dana</item>
+        <item>@string/paththanumodana</item>
+        <item>@string/other</item>
     </string-array>
 
     <string-array name="sub_type1">
         <item>@string/offer_budda</item>
         <item>@string/offer_sanga</item>
+        <item>@string/anugraha_dana</item>
         <item>@string/darma_dana</item>
+        <item>@string/abhaya_dana</item>
+        <item>@string/other</item>
     </string-array>
 
     <string-array name="sub_type2">
@@ -18,6 +29,38 @@
         <item>@string/ashtanga_sila</item>
         <item>@string/nawanga_sila</item>
         <item>@string/dasa_sila</item>
+        <item>@string/other</item>
+    </string-array>
+
+    <string-array name="sub_type3">
+        <item>@string/budda_vandana</item>
+        <item>@string/sangha_vandana</item>
+        <item>@string/sacred_place_vandana</item>
+        <item>@string/mapiya_vandana</item>
+        <item>@string/other</item>
+    </string-array>
+
+    <string-array name="sub_type4">
+        <item>@string/budda_upastana</item>
+        <item>@string/sangha_upastana</item>
+        <item>@string/sasana_upastana</item>
+        <item>@string/mapiya_upastana</item>
+        <item>@string/gihi_upastana</item>
+        <item>@string/shrama_dana</item>
+        <item>@string/other</item>
+    </string-array>
+
+    <string-array name="sub_type5">
+        <item>@string/deshana_dayakathwa</item>
+        <item>@string/teaching_damma</item>
+        <item>@string/other</item>
+    </string-array>
+
+    <string-array name="sub_type6">
+        <item>@string/damma_studies</item>
+        <item>@string/damma_sakachcha</item>
+        <item>@string/damma_manasikara</item>
+        <item>@string/other</item>
     </string-array>
 
     <string-array name="not_avilable">

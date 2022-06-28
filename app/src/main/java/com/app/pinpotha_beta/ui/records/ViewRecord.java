@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.app.pinpotha_beta.R;
@@ -18,7 +19,6 @@ import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
 import com.app.pinpotha_beta.ui.bottom_bar.Search;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
-import com.app.pinpotha_beta.ui.ketayam.LoadingDialog;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,6 +30,7 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -49,7 +50,8 @@ public class ViewRecord extends AppCompatActivity {
     private List<Model> list;
     ProgressBar pbar;
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
-
+    String startdate,endDate;
+    RelativeLayout nodataLayout;
 
 
     @Override
@@ -61,8 +63,17 @@ public class ViewRecord extends AppCompatActivity {
         bottomAppBar=findViewById(R.id.bottomAppBar);
         recyclerView=findViewById(R.id.recyclerview);
         pbar=findViewById(R.id.progressBarview);
+        nodataLayout=findViewById(R.id.nodataLayout);
         db=FirebaseFirestore.getInstance();
 
+        Bundle bundle = getIntent().getExtras();
+        ;
+
+        if (bundle != null) {
+            startdate = bundle.getString("start");
+            endDate= bundle.getString("end");
+
+        }
 
         // Initialize firebase auth
         firebaseAuth=FirebaseAuth.getInstance();
@@ -87,7 +98,10 @@ public class ViewRecord extends AppCompatActivity {
         adapter=new MyAdapter(this,list);
         recyclerView.setAdapter(adapter);
         pbar.setVisibility(View.VISIBLE);
-        showData(firebaseUser.getUid());
+        nodataLayout.setVisibility(View.GONE);
+       // showData(firebaseUser.getUid());
+        showData2(firebaseUser.getUid());
+
 
 
 
@@ -152,6 +166,7 @@ public class ViewRecord extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         list.clear();
+
                         for(DocumentSnapshot snapshot: task.getResult()){
                             Model model= new Model();
                             model.setId(snapshot.getId());
@@ -162,12 +177,48 @@ public class ViewRecord extends AppCompatActivity {
                             list.add(model);
                         }
                         adapter.notifyDataSetChanged();
-                        pbar.setVisibility(View.GONE);
+                      //  pbar.setVisibility(View.GONE);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(ViewRecord.this,"OOPS .... something weong",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+    }
+
+    private void showData2(String fbuser) {
+
+        CollectionReference pinaRef= db.collection("user/"+fbuser+"/pina/");
+        pinaRef.whereGreaterThanOrEqualTo("date",startdate)
+                .whereLessThanOrEqualTo("date",endDate)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        list.clear();
+                        for(DocumentSnapshot snapshot: task.getResult()){
+                            Model model= new Model();
+                            model.setId(snapshot.getId());
+                            model.setDate(snapshot.getString("date"));
+                            model.setDecription(snapshot.getString("desc"));
+                            model.setSubtitle(snapshot.getString("sub"));
+                            model.setTitle(snapshot.getString("main"));
+                            list.add(model);
+                        }
+                        if(list.isEmpty()){
+                            recyclerView.setVisibility(View.GONE);
+                            nodataLayout.setVisibility(View.VISIBLE);
+                        }
+                        adapter.notifyDataSetChanged();
+                       pbar.setVisibility(View.GONE);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(ViewRecord.this,"OOPS .... something wrong",Toast.LENGTH_SHORT).show();
                     }
                 });
 

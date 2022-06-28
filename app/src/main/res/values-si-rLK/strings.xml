@@ -2,5 +2,64 @@
 <resources>
     <string name="app_name">PinPotha - Beta</string>
     <string name="help">උදව්</string>
+    <string name="na">අදාළ නොවේ</string>
+    <string name="welcome">ආයුබෝවන්</string>
+
+    <!--Dropdown Main!-->
+    <string name="dana">දානය</string>
+    <string name="sila">සීලය</string>
+    <string name="apachayana">අපචායනය</string>
+    <string name="veyyavachcha">වෙය්‍යාවච්චය</string>
+    <string name="darmadeshana">ධර්ම දේශනය</string>
+    <string name="dittigukamma">දිට්ඨිජ්ජුකම්මය</string>
+    <string name="meditation">භාවනාව</string>
+    <string name="prapthi_dana">ප්‍රාප්ති දානය</string>
+    <string name="darmashrawana">ධර්ම ශ්‍ර‍වණය</string>
+    <string name="paththanumodana">පත්තානුමෝදනාව</string>
+    <string name="other">වෙනත්</string>
+    <!--END Dropdown Main !-->
+
+    <!--Dropdown Sub 1 (dana)!-->
+    <string name="offer_budda">බුදුරජාණන් වහන්සේ උදෙසා පූජාවන්</string>
+    <string name="offer_sanga">සංඝයා වහන්සේ උදෙසා පූජාවන්</string>
+    <string name="anugraha_dana">ගිහියන් උදෙසා දාන/ අනුග්‍රහ</string>
+    <string name="darma_dana">ධර්ම දාන</string>
+    <string name="abhaya_dana">අභය දාන</string>
+    <!--END Dropdown Sub 1 !-->
+
+    <!--Dropdown Sub 2 (sila)!-->
+    <string name="pancha_sila">පඤ්ච ශීලය</string>
+    <string name="brahmachari">බ්‍ර‍හ්මචරිය පඤ්ච ශීලය</string>
+    <string name="ashtanga_sila">අෂ්ඨාංග ශීලය</string>
+    <string name="nawanga_sila">නවාංග ශීලය</string>
+    <string name="dasa_sila">දශ ශීලය</string>
+    <!--END Dropdown Sub 2 !-->
+
+    <!--Dropdown Sub 3 (apachayana)!-->
+    <string name="budda_vandana">බුද්ධ වන්දනා</string>
+    <string name="sangha_vandana">ස්වාමීන් වහන්සේ වන්දනා</string>
+    <string name="sacred_place_vandana">පුජනීය ස්ථාන වන්දනා</string>
+    <string name="mapiya_vandana">මව්පිය වන්දනා</string>
+    <!--END Dropdown Sub 3 !-->
+
+    <!--Dropdown Sub 4 (veyyavachcha)!-->
+    <string name="budda_upastana">බුද්ධෝපස්ථාන</string>
+    <string name="sangha_upastana">සංඝෝපස්ථාන</string>
+    <string name="sasana_upastana">ශාසනය උදෙසා ශ්‍රම දායකත්ව</string>
+    <string name="mapiya_upastana">මව්පිය උපස්ථාන</string>
+    <string name="gihi_upastana">ගිහි උපස්ථාන</string>
+    <string name="shrama_dana">ගිහි සමාජය උදෙසා ශ්‍රම දායකත්ව</string>
+    <!--END Dropdown Sub 4 !-->
+
+    <!--Dropdown Sub 5 (darmadeshana)!-->
+    <string name="deshana_dayakathwa">ධර්ම දේශනා දායකත්වය</string>
+    <string name="teaching_damma">ධර්මය කියාදීම</string>
+    <!--END Dropdown Sub 5 !-->
+
+    <!--Dropdown Sub 6 (dittigukamma)!-->
+    <string name="damma_studies">ධර්ම අධ්‍යයනය</string>
+    <string name="damma_sakachcha">ධර්ම සාකච්ඡා</string>
+    <string name="damma_manasikara">ධර්ම මනසිකාරය</string>
+    <!--END Dropdown Sub 6 !-->
 
 </resources>

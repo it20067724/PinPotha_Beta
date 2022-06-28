@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.bottom_bar.ProfileActivity;
+import com.app.pinpotha_beta.ui.bottom_bar.Search;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
@@ -208,7 +209,7 @@ public class EditRecord extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(EditRecord.this,"Record Deleted",Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(getApplicationContext()
-                                        , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                        , Search.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                                 overridePendingTransition(0, 0);
                             }
                         })
@@ -238,9 +239,12 @@ public class EditRecord extends AppCompatActivity {
                @Override
                public void onComplete(@NonNull Task<Void> task) {
                    Toast.makeText(EditRecord.this,"Record Updated",Toast.LENGTH_LONG).show();
-                   startActivity(new Intent(getApplicationContext()
-                           , ViewRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                   overridePendingTransition(0, 0);
+                   Bundle bundle= new Bundle();
+                   bundle.putString("start",recDate);
+                   bundle.putString("end",recDate);
+                   Intent intent= new Intent(EditRecord.this, ViewRecord.class);
+                   intent.putExtras(bundle);
+                   startActivity(intent);
                }
            })
            .addOnFailureListener(new OnFailureListener() {
