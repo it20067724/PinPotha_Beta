@@ -3,18 +3,17 @@
     <string-array name="main_type" >
         <item>@string/dana</item>
         <item>@string/sila</item>
+        <item>@string/meditation</item>
         <item>@string/apachayana</item>
         <item>@string/veyyavachcha</item>
-        <item>@string/darmadeshana</item>
-        <item>@string/dittigukamma</item>
-        <item>@string/meditation</item>
-        <item>@string/darmashrawana</item>
         <item>@string/prapthi_dana</item>
         <item>@string/paththanumodana</item>
-        <item>@string/other</item>
+        <item>@string/darmashrawana</item>
+        <item>@string/darmadeshana</item>
+        <item>@string/dittigukamma</item>
     </string-array>
 
-    <string-array name="sub_type1">
+    <string-array name="sub_type_dana">
         <item>@string/offer_budda</item>
         <item>@string/offer_sanga</item>
         <item>@string/anugraha_dana</item>
@@ -23,7 +22,7 @@
         <item>@string/other</item>
     </string-array>
 
-    <string-array name="sub_type2">
+    <string-array name="sub_type_sila">
         <item>@string/pancha_sila</item>
         <item>@string/brahmachari</item>
         <item>@string/ashtanga_sila</item>
@@ -32,7 +31,7 @@
         <item>@string/other</item>
     </string-array>
 
-    <string-array name="sub_type3">
+    <string-array name="sub_type_apachayana">
         <item>@string/budda_vandana</item>
         <item>@string/sangha_vandana</item>
         <item>@string/sacred_place_vandana</item>
@@ -40,7 +39,7 @@
         <item>@string/other</item>
     </string-array>
 
-    <string-array name="sub_type4">
+    <string-array name="sub_type_veyyavachcha">
         <item>@string/budda_upastana</item>
         <item>@string/sangha_upastana</item>
         <item>@string/sasana_upastana</item>
@@ -50,13 +49,13 @@
         <item>@string/other</item>
     </string-array>
 
-    <string-array name="sub_type5">
+    <string-array name="sub_type_darmadeshana">
         <item>@string/deshana_dayakathwa</item>
         <item>@string/teaching_damma</item>
         <item>@string/other</item>
     </string-array>
 
-    <string-array name="sub_type6">
+    <string-array name="sub_type_dittigukamma">
         <item>@string/damma_studies</item>
         <item>@string/damma_sakachcha</item>
         <item>@string/damma_manasikara</item>

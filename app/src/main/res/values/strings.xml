@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">PinPotha - Beta</string>
+    <string name="app_name" translatable="false">Pin Potha - Beta</string>
     <string name="app_version" translatable="false">App Version : 1.0</string>
     <!--Bottom Nav  !-->
     <string name="add" translatable="false">Add</string>
@@ -39,11 +39,11 @@
     <string name="date" translatable="false">Date *</string>
     <string name="date2" translatable="false">Date :</string>
     <string name="description" translatable="false">Description</string>
-    <string name="mainCat" translatable="false">Main Category</string>
-    <string name="subCat" translatable="false">Sub Category</string>
+    <string name="mainCat" translatable="false">Ten Meritorious Deeds</string>
+    <string name="subCat" translatable="false">Sub Meritorious Deeds</string>
     <string name="edit_record" translatable="false">Edit Record</string>
     <string name="error_msg_mandatory" translatable="false">Please fill this field</string>
-
+    <string name="error_msg_max_char" translatable="false">Exceeded Maximum Character Limit</string>
     <!--END Add Record !-->
 
     <!--Start No Connection !-->
@@ -75,12 +75,28 @@
     <!--END  Delete Record  !-->
 
     <!--Start  Search!-->
-    <string name="start_date" translatable="false">Select Start to Search</string>
+    <string name="start_date" translatable="false">Select Start Date to Search</string>
     <string name="end_date" translatable="false">Select End Date to Search</string>
     <string name="error_msg_invalid_date" translatable="false">Please select a date before End Date</string>
     <string name="label_no_data" translatable="false">No Data Found</string>
 
     <!--END  Search  !-->
+
+    <!--Start Help Text !-->
+    <string name="dana_help">Charity (Alms Giving)</string>
+    <string name="sila_help">Moral Conduct</string>
+    <string name="meditation_help">Meditation</string>
+    <string name="apachayana_help">Paying Reverence to Others</string>
+    <string name="veyyavachcha_help">Rendering Service to Others</string>
+    <string name="prapthi_dana_help">Sharing of Merit</string>
+    <string name="paththanumodana_help">Rejoicing in Others’ Merit </string>
+    <string name="darmashrawana_help">Listening to Dhamma</string>
+    <string name="darmadeshana_help">Expounding of Dhamma</string>
+    <string name="dittigukamma_help">Development of Right View</string>
+    <!--END Help Text    !-->
+
+
+
 
     <!--Start  !-->
     <!--END    !-->
@@ -95,21 +111,23 @@
     <string name="welcome">Welcome</string>
     <string name="hello" translatable="false">Record your good Deeds</string>
     <string name="seamless" translatable="false">Seamlessly</string>
-    <string name="na">N/A</string>
+    <string name="na">-</string>
     <string name="btn_yes" translatable="false">Yes</string>
     <string name="btn_no" translatable="false">No</string>
+    <string name="btn_ok" translatable="false">OK</string>
+
 
     <!--Dropdown Main!-->
-    <string name="dana">"Dana "</string>
-    <string name="sila">Sila</string>
-    <string name="apachayana">Apachayana</string>
-    <string name="veyyavachcha">Veiyavachcha</string>
-    <string name="darmadeshana">Dharma Deshana</string>
-    <string name="dittigukamma">Dittijukamma</string>
-    <string name="meditation">Bhavana</string>
-    <string name="darmashrawana">Dhamma Shravana</string>
-    <string name="prapthi_dana">Prapthi dana</string>
-    <string name="paththanumodana">"Paththanumodana "</string>
+    <string name="dana">Dāna</string>
+    <string name="sila">Sīla</string>
+    <string name="apachayana">Apacāyana</string>
+    <string name="veyyavachcha">Veyyāvacca</string>
+    <string name="darmadeshana">Dhammadesanā</string>
+    <string name="dittigukamma">Dhiṭṭhijukamma</string>
+    <string name="meditation">Bhāvanā</string>
+    <string name="darmashrawana">Dhammassavana</string>
+    <string name="prapthi_dana">Pattidāna</string>
+    <string name="paththanumodana">Pattāanumodana</string>
     <string name="other">Other</string>
     <!--END Dropdown Main !-->
 
