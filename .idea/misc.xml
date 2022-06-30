@@ -49,6 +49,7 @@
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/drawable/ic_not_found.xml" value="0.1905" />
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/drawable/ic_settings_24dp.xml" value="0.1905" />
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/layout/activity_add_record.xml" value="0.17552083333333332" />
+        <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/layout/activity_edit_record.xml" value="0.17552083333333332" />
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/layout/activity_search.xml" value="0.1" />
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/layout/activity_view_record.xml" value="0.17552083333333332" />
@@ -56,6 +57,7 @@
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/layout/loader.xml" value="0.17552083333333332" />
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1905" />
         <entry key="..\:/Study/SLIIT/Thilan/Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.201" />
+        <entry key="..\:/Users/Ishan/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.17552083333333332" />
       </map>
     </option>
   </component>

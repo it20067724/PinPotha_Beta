@@ -3,7 +3,9 @@ package com.app.pinpotha_beta.ui.records;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.pinpotha_beta.R;
@@ -55,6 +58,7 @@ public class AddRecord extends AppCompatActivity {
     Spinner mainCat, subCat;
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
     ImageView imageView;
+    TextView subCatlbl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +71,8 @@ public class AddRecord extends AppCompatActivity {
         recdate.setInputType(0);
         description = findViewById(R.id.descriptiondata);
         btn_add = findViewById(R.id.btn_add);
-        imageView= findViewById(R.id.new_rec_icon);
+        subCatlbl=findViewById(R.id.text_sub_cat);
+        imageView= findViewById(R.id.helptxt);
         setToday();
         mainCat = (Spinner) findViewById(R.id.mainspinner);
         subCat = (Spinner) findViewById(R.id.subspinner);
@@ -81,41 +86,41 @@ public class AddRecord extends AppCompatActivity {
         mainCat.setAdapter(mainType);
 
         //set sub types
-        ArrayAdapter<CharSequence> subType1
+        ArrayAdapter<CharSequence> sub_type_dana
                 = ArrayAdapter.createFromResource(
-                this, R.array.sub_type1,
+                this, R.array.sub_type_dana,
                 android.R.layout.simple_spinner_item);
-        subType1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sub_type_dana.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ArrayAdapter<CharSequence> subType2
+        ArrayAdapter<CharSequence> sub_type_sila
                 = ArrayAdapter.createFromResource(
-                this, R.array.sub_type2,
+                this, R.array.sub_type_sila,
                 android.R.layout.simple_spinner_item);
-        subType2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sub_type_sila.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ArrayAdapter<CharSequence> subType3
+        ArrayAdapter<CharSequence> sub_type_apachayana
                 = ArrayAdapter.createFromResource(
-                this, R.array.sub_type3,
+                this, R.array.sub_type_apachayana,
                 android.R.layout.simple_spinner_item);
-        subType3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sub_type_apachayana.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ArrayAdapter<CharSequence> subType4
+        ArrayAdapter<CharSequence> sub_type_veyyavachcha
                 = ArrayAdapter.createFromResource(
-                this, R.array.sub_type4,
+                this, R.array.sub_type_veyyavachcha,
                 android.R.layout.simple_spinner_item);
-        subType4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sub_type_veyyavachcha.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ArrayAdapter<CharSequence> subType5
+        ArrayAdapter<CharSequence> sub_type_darmadeshana
                 = ArrayAdapter.createFromResource(
-                this, R.array.sub_type5,
+                this, R.array.sub_type_darmadeshana,
                 android.R.layout.simple_spinner_item);
-        subType5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sub_type_darmadeshana.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ArrayAdapter<CharSequence> subType6
+        ArrayAdapter<CharSequence> sub_type_dittigukamma
                 = ArrayAdapter.createFromResource(
-                this, R.array.sub_type6,
+                this, R.array.sub_type_dittigukamma,
                 android.R.layout.simple_spinner_item);
-        subType6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sub_type_dittigukamma.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
         //end set sub types
@@ -130,21 +135,52 @@ public class AddRecord extends AppCompatActivity {
         mainCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                if (position == 0) {
-                    subCat.setAdapter(subType1);
-                } else if (position == 1) {
-                    subCat.setAdapter(subType2);
+                if (position == 0) {//dana
+                    subCat.setAdapter(sub_type_dana);
                     imageView.setVisibility(View.VISIBLE);
-                } else if (position == 2) {
-                    subCat.setAdapter(subType3);
-                } else if (position == 3) {
-                    subCat.setAdapter(subType4);
-                } else if (position == 4) {
-                    subCat.setAdapter(subType5);
-                } else if (position == 5) {
-                    subCat.setAdapter(subType6);
-                } else {
+                    subCat.setVisibility(View.VISIBLE);
+                    subCatlbl.setVisibility(View.VISIBLE);
+                } else if (position == 1) {//sila
+                    subCat.setAdapter(sub_type_sila);
+                    imageView.setVisibility(View.VISIBLE);
+                    subCat.setVisibility(View.VISIBLE);
+                    subCatlbl.setVisibility(View.VISIBLE);
+                } else if (position == 2) {//bhavana
                     subCat.setAdapter(not_available);
+                    subCat.setVisibility(View.GONE);
+                    subCatlbl.setVisibility(View.GONE);
+                } else if (position == 3) {//apachayana
+                    subCat.setAdapter(sub_type_apachayana);
+                    imageView.setVisibility(View.VISIBLE);
+                    subCat.setVisibility(View.VISIBLE);
+                    subCatlbl.setVisibility(View.VISIBLE);
+                } else if (position == 4) {//veyyavacca
+                    subCat.setAdapter(sub_type_veyyavachcha);
+                    imageView.setVisibility(View.VISIBLE);
+                    subCat.setVisibility(View.VISIBLE);
+                    subCatlbl.setVisibility(View.VISIBLE);
+                } else if (position == 5) {//prapthi
+                    subCat.setAdapter(not_available);
+                    subCat.setVisibility(View.GONE);
+                    subCatlbl.setVisibility(View.GONE);
+                } else if (position == 6) {//pattanumodana
+                    subCat.setAdapter(not_available);
+                    subCat.setVisibility(View.GONE);
+                    subCatlbl.setVisibility(View.GONE);
+                }else if (position == 7) {//dammasavana
+                    subCat.setAdapter(not_available);
+                    subCat.setVisibility(View.GONE);
+                    subCatlbl.setVisibility(View.GONE);
+                }else if (position == 8) {//dammadeshana
+                    subCat.setAdapter(sub_type_darmadeshana);
+                    imageView.setVisibility(View.VISIBLE);
+                    subCat.setVisibility(View.VISIBLE);
+                    subCatlbl.setVisibility(View.VISIBLE);
+                }else if (position == 9) {//dittijukamma
+                    subCat.setAdapter(sub_type_dittigukamma);
+                    imageView.setVisibility(View.VISIBLE);
+                    subCat.setVisibility(View.VISIBLE);
+                    subCatlbl.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -154,6 +190,13 @@ public class AddRecord extends AppCompatActivity {
             }
         });
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayHelptxt(mainCat.getSelectedItemPosition());
+            }
+
+        });
         //end child spinner
 
         db = FirebaseFirestore.getInstance();
@@ -260,6 +303,69 @@ public class AddRecord extends AppCompatActivity {
         super.onStop();
     }
 
+    private void displayHelptxt(int position) {
+        String title="";
+        String description="";
+        if(position==0){
+            title= getString(R.string.dana);
+            description= getString(R.string.dana_help);
+        }
+        if(position==1){
+            title= getString(R.string.sila);
+            description= getString(R.string.sila_help);
+        }
+        if(position==2){
+            title= getString(R.string.meditation);
+            description= getString(R.string.meditation_help);
+        }
+        if(position==3){
+            title= getString(R.string.apachayana);
+            description= getString(R.string.apachayana_help);
+        }
+        if(position==4){
+            title= getString(R.string.veyyavachcha);
+            description= getString(R.string.veyyavachcha_help);
+        }
+        if(position==5){
+            title= getString(R.string.prapthi_dana);
+            description= getString(R.string.prapthi_dana_help);
+        }
+        if(position==6){
+            title= getString(R.string.paththanumodana);
+            description= getString(R.string.paththanumodana_help);
+        }
+        if(position==7){
+            title= getString(R.string.darmashrawana);
+            description= getString(R.string.darmashrawana_help);
+        }
+        if(position==8){
+            title= getString(R.string.darmadeshana);
+            description= getString(R.string.darmadeshana_help);
+        }
+        if(position==9){
+            title= getString(R.string.dittigukamma);
+            description= getString(R.string.dittigukamma_help);
+        }
+
+        buildalert(title,description);
+
+    }
+
+    private void buildalert(String title,String description) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setMessage(description);
+        builder.setIcon(R.drawable.pinpotha_icon);
+        builder.setPositiveButton(R.string.btn_ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        builder.create().show();
+    }
+
     private void saveToFirestore(String recDate, String recdisc, String recMain, String recSub, String fbuser) {
         //validate fields are empty
         //getCounterMaxLength
@@ -304,6 +410,11 @@ public class AddRecord extends AppCompatActivity {
     private boolean CheckAllFields() {
         if (recdate.length() == 0) {
             recdate.setError(getString(R.string.error_msg_mandatory));
+            return false;
+        }
+
+        if (description.length() > 500) {
+            description.setError(getString(R.string.error_msg_max_char));
             return false;
         }
         return true;
