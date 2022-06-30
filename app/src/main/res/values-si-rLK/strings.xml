@@ -2,8 +2,22 @@
 <resources>
     <string name="app_name">PinPotha - Beta</string>
     <string name="help">උදව්</string>
-    <string name="na">අදාළ නොවේ</string>
+    <string name="na">-</string>
     <string name="welcome">ආයුබෝවන්</string>
+
+    <!--Start Help Text !-->
+    <string name="dana_help">දානය</string>
+    <string name="sila_help">සීලය</string>
+    <string name="meditation_help">භාවනාව</string>
+    <string name="apachayana_help">සුදුස්සන්ට ගෞරව දැක්වීම</string>
+    <string name="veyyavachcha_help">සුදුස්සන්ට වතාවත් කිරීම</string>
+    <string name="prapthi_dana_help">පින් අනුමෝදන් කිරීම</string>
+    <string name="paththanumodana_help">පින් අනුමෝදන් වීම</string>
+    <string name="darmashrawana_help">ධර්ම ශ්‍ර‍වණය</string>
+    <string name="darmadeshana_help">ධර්ම දේශනය</string>
+    <string name="dittigukamma_help">සම්මා දිට්ඨිය දියුණු  කරගැනීම</string>
+    <!--END Help Text    !-->
+
 
     <!--Dropdown Main!-->
     <string name="dana">දානය</string>
