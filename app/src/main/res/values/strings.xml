@@ -173,4 +173,31 @@
     <string name="damma_sakachcha">Dhamma Discussions</string>
     <string name="damma_manasikara">Contemplation of Dhamma </string>
     <!--END Dropdown Sub 6 !-->
+
+    <!--Start About us !-->
+    <string name="para1">
+        The custom of writing meritorious deeds on a book has been prevailing among
+        Sri Lankans since ancient times. It is a well-known fact that King
+        Dutugamunu,the Great who reunited Sri Lanka requested one of his
+        subordinates to read out his "Book of Merits" (known as "Pin Potha" in Sinhala) at
+        his last moment. The Merits Book comprises the virtuous and the greatest deeds
+        which one has performed in his or her life. Using this book, a person can easily
+        recall meritorious deeds regularly and develop more "Merits" (known as "Kusal"
+        or "Pin" in Sinhala).
+    </string>
+    <string name="para2">
+    This mobile application is the electronic version of the tradition of maintaining a
+    Book of Merits.
+     </string>
+    <string name="para3">
+   With Metta, we are gifting this app to you and hope that you will engage in more
+meritorious deeds and recall them very easily pleasing yourselves. We hope that
+you will use this app with great interest and step closer to the ultimate goal of
+attaining &quot;Nibbana&quot;.
+     </string>
+    <string name="para4">
+May the Triple Gem Bless you !
+     </string>
+
+    <!--END  About us   !-->
 </resources>
