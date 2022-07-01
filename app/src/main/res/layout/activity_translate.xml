@@ -47,12 +47,6 @@
                     android:layout_height="match_parent"
                     android:onClick="changeLanguage"
                     android:text="@string/btn_sin"/>
-                <RadioButton
-                    android:id="@+id/lang_tm"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:onClick="changeLanguage"
-                    android:text="@string/btn_tam"/>
             </RadioGroup>
 
         </LinearLayout>
