@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +60,7 @@ public class AddRecord extends AppCompatActivity {
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
     ImageView imageView;
     TextView subCatlbl;
+    ProgressBar pbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,7 @@ public class AddRecord extends AppCompatActivity {
         btn_add = findViewById(R.id.btn_add);
         subCatlbl=findViewById(R.id.text_sub_cat);
         imageView= findViewById(R.id.helptxt);
+        pbar=findViewById(R.id.progressBarview);
         setToday();
         mainCat = (Spinner) findViewById(R.id.mainspinner);
         subCat = (Spinner) findViewById(R.id.subspinner);
@@ -245,6 +248,7 @@ public class AddRecord extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pbar.setVisibility(View.VISIBLE);
                 String recDate = recdate.getText().toString();
                 String recMain = (String) mainCat.getSelectedItem();
                 String recSub = (String) subCat.getSelectedItem();
@@ -373,21 +377,27 @@ public class AddRecord extends AppCompatActivity {
         HashMap<String, Object> map = new HashMap<>();
         map.put("main", recMain);
         map.put("sub", recSub);
-        map.put("date", recDate);
+        map.put("date", TimeData.conDateDB(recDate));
         map.put("desc", recdisc);
         Log.d("path:", "user/" + fbuser + "/pina/");
         db.collection("user/" + fbuser + "/pina/").add(map)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-
+                        startActivity(new Intent(getApplicationContext()
+                                , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        overridePendingTransition(0, 0);
+                        pbar.setVisibility(View.GONE);
                         Toast.makeText(AddRecord.this, "Record added", Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
+                        pbar.setVisibility(View.GONE);
+                        startActivity(new Intent(getApplicationContext()
+                                , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        overridePendingTransition(0, 0);
                         Toast.makeText(AddRecord.this, "Record add fail", Toast.LENGTH_LONG).show();
                     }
                 });

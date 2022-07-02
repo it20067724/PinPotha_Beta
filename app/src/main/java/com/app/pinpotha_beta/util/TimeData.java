@@ -1,6 +1,5 @@
 package com.app.pinpotha_beta.util;
 
-import android.os.Build;
 import android.util.Log;
 
 
@@ -44,10 +43,8 @@ public class TimeData {
         int hour = cal.get(Calendar.HOUR_OF_DAY);
         if (hour >= 12 && hour < 17) {
             greeting = afternoon + " " + name[0];
-        } else if (hour >= 17 && hour < 21) {
+        } else if (hour >= 17 && hour < 24) {
             greeting = evening + " " + name[0];
-        } else if (hour >= 21 && hour < 24) {
-            greeting = night + " " + name[0];
         } else {
             greeting = morning + " " + name[0];
         }
@@ -69,6 +66,24 @@ public class TimeData {
 
             return true;
         } else return d1.compareTo(d2) == 0;
+    }
+
+    public static Long conDateDB(String date){
+        String[] uiDate = date.split("-");
+        String rtnDate=uiDate[2]+uiDate[1]+uiDate[0];
+        Log.d("rtnDate","rtnDate:"+rtnDate);
+        return Long.parseLong(rtnDate);
+    }
+
+    public static String conUiDate(Long date){
+        String dbDate = String.valueOf(date);
+        String rtnDate=dbDate.substring(6,8)
+                +"-" +
+                dbDate.substring(4,6)
+                +"-" +
+                dbDate.substring(0,4);
+        Log.d("rtnDate","rtnDate:"+rtnDate);
+        return rtnDate;
     }
 
 }

@@ -234,7 +234,7 @@ public class EditRecord extends AppCompatActivity {
 
     private void updateToFirestore(String recDate, String recdisc, String fbuser, String id) {
       db.collection("user/"+fbuser+"/pina/").document(id)
-           .update("date",recDate,"desc",recdisc)
+           .update("date",TimeData.conDateDB(recDate),"desc",recdisc)
            .addOnCompleteListener(new OnCompleteListener<Void>() {
                @Override
                public void onComplete(@NonNull Task<Void> task) {

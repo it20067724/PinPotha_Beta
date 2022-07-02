@@ -35,7 +35,7 @@
     <!--END Translate   !-->
 
     <!--Add Record!-->
-    <string name="add_record" translatable="false">Add new Record</string>
+    <string name="add_record" translatable="false">Add new Meritorious Deeds</string>
     <string name="date" translatable="false">Date *</string>
     <string name="date2" translatable="false">Date :</string>
     <string name="description" translatable="false">Description</string>
@@ -43,7 +43,7 @@
     <string name="subCat" translatable="false">Sub Meritorious Deeds</string>
     <string name="edit_record" translatable="false">Edit Record</string>
     <string name="error_msg_mandatory" translatable="false">Please fill this field</string>
-    <string name="error_msg_max_char" translatable="false">Exceeded Maximum Character Limit</string>
+    <string name="error_msg_max_char" translatable="false">Maximum Character Limit Exceeded</string>
     <!--END Add Record !-->
 
     <!--Start No Connection !-->
