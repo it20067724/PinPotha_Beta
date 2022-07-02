@@ -2,11 +2,12 @@ package com.app.pinpotha_beta.ui.records;
 
 public class Model {
 
-    String id,title,subtitle,decription,date;
+    String id,title,subtitle,decription;
+Long date;
 
     public Model(){}
 
-    public Model(String id, String title, String subtitle, String decription, String date) {
+    public Model(String id, String title, String subtitle, String decription, Long date) {
         this.id = id;
         this.title = title;
         this.subtitle = subtitle;
@@ -46,11 +47,11 @@ public class Model {
         this.decription = decription;
     }
 
-    public String getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 }

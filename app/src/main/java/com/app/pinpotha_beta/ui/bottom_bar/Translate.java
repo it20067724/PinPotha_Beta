@@ -135,14 +135,14 @@ public class Translate extends AppCompatActivity {
                     recreate();
                     break;
                 }
-            case R.id.lang_tm:
+       /*     case R.id.lang_tm:
                 if (checked) {
                     localeHelper.setLocale(this, "ta");
                     setCheckedBtn();
                     recreate();
                     break;
                 }
-
+        */
         }
     }
 
@@ -157,9 +157,11 @@ public class Translate extends AppCompatActivity {
             radioButton = findViewById(R.id.lang_si);
             radioButton.setChecked(true);
         }
-        if (lang.equals("ta")) {
+      /*  if (lang.equals("ta")) {
             radioButton = findViewById(R.id.lang_tm);
             radioButton.setChecked(true);
-        }
+       }
+
+       */
     }
 }

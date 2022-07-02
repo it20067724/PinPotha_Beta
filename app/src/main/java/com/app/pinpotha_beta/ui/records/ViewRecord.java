@@ -20,6 +20,7 @@ import com.app.pinpotha_beta.ui.bottom_bar.Search;
 import com.app.pinpotha_beta.ui.bottom_bar.SideMenu;
 import com.app.pinpotha_beta.ui.bottom_bar.Translate;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
+import com.app.pinpotha_beta.util.TimeData;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -170,7 +171,7 @@ public class ViewRecord extends AppCompatActivity {
                         for(DocumentSnapshot snapshot: task.getResult()){
                             Model model= new Model();
                             model.setId(snapshot.getId());
-                            model.setDate(snapshot.getString("date"));
+                            model.setDate(snapshot.getLong("date"));
                             model.setDecription(snapshot.getString("desc"));
                             model.setSubtitle(snapshot.getString("sub"));
                             model.setTitle(snapshot.getString("main"));
@@ -192,8 +193,8 @@ public class ViewRecord extends AppCompatActivity {
     private void showData2(String fbuser) {
 
         CollectionReference pinaRef= db.collection("user/"+fbuser+"/pina/");
-        pinaRef.whereGreaterThanOrEqualTo("date",startdate)
-                .whereLessThanOrEqualTo("date",endDate)
+        pinaRef.whereGreaterThanOrEqualTo("date", TimeData.conDateDB(startdate))
+                .whereLessThanOrEqualTo("date",TimeData.conDateDB(endDate))
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -202,7 +203,7 @@ public class ViewRecord extends AppCompatActivity {
                         for(DocumentSnapshot snapshot: task.getResult()){
                             Model model= new Model();
                             model.setId(snapshot.getId());
-                            model.setDate(snapshot.getString("date"));
+                            model.setDate(snapshot.getLong("date"));
                             model.setDecription(snapshot.getString("desc"));
                             model.setSubtitle(snapshot.getString("sub"));
                             model.setTitle(snapshot.getString("main"));
