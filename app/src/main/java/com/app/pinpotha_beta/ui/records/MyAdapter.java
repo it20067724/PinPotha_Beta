@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.pinpotha_beta.MainActivity;
 import com.app.pinpotha_beta.R;
+import com.app.pinpotha_beta.util.TimeData;
+import com.google.type.DateTime;
 
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     //    holder.id.setText(mList.get(position).getId());
         holder.subtitle.setText(mList.get(position).getSubtitle());
         holder.decription.setText(mList.get(position).getDecription());
-        holder.date.setText(mList.get(position).getDate());
+        holder.date.setText(TimeData.conUiDate(mList.get(position).getDate()));
 
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 bundle.putString("title",mList.get(position).getTitle());
                 bundle.putString("subtitle",mList.get(position).getSubtitle());
                 bundle.putString("desc",mList.get(position).getDecription());
-                bundle.putString("date",mList.get(position).getDate());
+                bundle.putString("date", TimeData.conUiDate(mList.get(position).getDate()));
                 Intent intent= new Intent(activity, EditRecord.class);
                 intent.putExtras(bundle);
                 activity.startActivity(intent);
