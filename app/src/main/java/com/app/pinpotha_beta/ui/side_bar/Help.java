@@ -1,12 +1,17 @@
 package com.app.pinpotha_beta.ui.side_bar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.app.pinpotha_beta.R;
@@ -30,35 +35,38 @@ public class Help extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     BottomAppBar bottomAppBar;
     FloatingActionButton faButton;
-    NetworkChangeListener networkChangeListener=new NetworkChangeListener();
-
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
+    ImageButton arrow;
+    CardView cardView;
+    LinearLayout hiddenView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
         // Assign variable
-        bottomAppBar=findViewById(R.id.bottomAppBar);
-        faButton=findViewById(R.id.fActionbtn);
+        bottomAppBar = findViewById(R.id.bottomAppBar);
+        faButton = findViewById(R.id.fActionbtn);
+        arrow = findViewById(R.id.arrow_button);
+        hiddenView = findViewById(R.id.hidden_view);
+        cardView = findViewById(R.id.base_cardview);
 
         // Initialize firebase auth
-        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
 
         // Initialize firebase user
-        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         // Check condition
-        if(firebaseUser!=null)
-        {
+        if (firebaseUser != null) {
             //load details
-        }
-        else{
+        } else {
             Toast.makeText(getApplicationContext(), "User Not Avialable", Toast.LENGTH_SHORT).show();
         }
 
 
         // Initialize sign in client
-        googleSignInClient= GoogleSignIn.getClient(Help.this
+        googleSignInClient = GoogleSignIn.getClient(Help.this
                 , GoogleSignInOptions.DEFAULT_SIGN_IN);
 
         faButton.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +78,7 @@ public class Help extends AppCompatActivity {
             }
         });
 
-        bottomAppBar.setOnMenuItemClickListener(menuItem->{
+        bottomAppBar.setOnMenuItemClickListener(menuItem -> {
             switch (menuItem.getItemId()) {
                 case R.id.sidemenu:
                     startActivity(new Intent(getApplicationContext()
@@ -99,7 +107,39 @@ public class Help extends AppCompatActivity {
             return false;
         });
 
+        arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // If the CardView is already expanded, set its visibility
+                //  to gone and change the expand less icon to expand more.
+                if (hiddenView.getVisibility() == View.VISIBLE) {
+
+                    // The transition of the hiddenView is carried out
+                    //  by the TransitionManager class.
+                    // Here we use an object of the AutoTransition
+                    // Class to create a default transition.
+                    TransitionManager.beginDelayedTransition(cardView,
+                            new AutoTransition());
+                    hiddenView.setVisibility(View.GONE);
+                    arrow.setImageResource(R.drawable.expandmore);
+                }
+
+                // If the CardView is not expanded, set its visibility
+                // to visible and change the expand more icon to expand less.
+                else {
+
+                    TransitionManager.beginDelayedTransition(cardView,
+                            new AutoTransition());
+                    hiddenView.setVisibility(View.VISIBLE);
+                    arrow.setImageResource(R.drawable.expandless);
+                }
+            }
+        });
+
     }
+
+
 
     @Override
     protected void onStart() {

@@ -2,16 +2,20 @@ package com.app.pinpotha_beta.ui.bottom_bar;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.records.AddRecord;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
+import com.app.pinpotha_beta.ui.side_bar.Communiuty;
 import com.app.pinpotha_beta.util.TimeData;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
     FloatingActionButton faButton;
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
     TextView greeting;
+    CardView btCommunity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
         bottomAppBar=findViewById(R.id.bottomAppBar);
         faButton=findViewById(R.id.fActionbtn);
         greeting=findViewById(R.id.greeting);
-
+        btCommunity=findViewById(R.id.crd_community);
 
         // Initialize firebase auth
         firebaseAuth=FirebaseAuth.getInstance();
@@ -100,6 +105,15 @@ public class ProfileActivity extends AppCompatActivity {
                     return true;
             }
             return false;
+        });
+
+        btCommunity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext()
+                        , Communiuty.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                overridePendingTransition(0, 0);
+            }
         });
     }
 
