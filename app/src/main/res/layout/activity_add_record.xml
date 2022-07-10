@@ -20,25 +20,26 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar2"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_corner_rectangle"
+        android:layout_gravity="top"
+        app:title="@string/add_record" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingBottom="100dp">
+        android:paddingTop="55dp"
+        android:paddingBottom="70dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-            <TextView
-                android:id="@+id/addrec"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="1dp"
-                android:text="@string/add_record"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
 
 
             <Space

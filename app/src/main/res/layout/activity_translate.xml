@@ -11,11 +11,20 @@
     tools:context=".ui.bottom_bar.Translate">
 
     <!-- Note: A RecyclerView can also be used -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar2"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_corner_rectangle"
+        android:layout_gravity="top"
+        app:title="Language" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false">
+        android:paddingTop="55dp"
+        android:paddingBottom="70dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

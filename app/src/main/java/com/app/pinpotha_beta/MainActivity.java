@@ -147,16 +147,14 @@ public class MainActivity extends AppCompatActivity {
                                             startActivity(new Intent(MainActivity.this
                                                     ,ProfileActivity.class)
                                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                                            // Display Toast
-                                            displayToast("Firebase authentication successful");
+
 
                                         }
                                         else
                                         {
                                             // When task is unsuccessful
                                             // Display Toast
-                                            displayToast("Authentication Failed :"+task.getException()
-                                                    .getMessage());
+
                                         }
                                     }
                                 });
