@@ -1,6 +1,7 @@
 package com.app.pinpotha_beta.util;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
@@ -36,4 +37,6 @@ public class Common {
         }
         return false;
     }
+
+
 }

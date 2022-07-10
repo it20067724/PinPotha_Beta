@@ -106,19 +106,19 @@ tools:context=".ui.bottom_bar.SideMenu">
                 android:text="@string/invite"
                 app:icon="@drawable/ic_invite_24dp"/>
 
+                      <Button
+                android:id="@+id/btn_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+             android:text="@string/about"
+                app:icon="@drawable/ic_about_24dp" />
+
             <Button
                 android:id="@+id/btn_help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help"
                 app:icon="@drawable/ic_help_24dp"/>
-
-            <Button
-                android:id="@+id/btn_about"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-             android:text="@string/about"
-                app:icon="@drawable/ic_about_24dp" />
 
             <Button
                 android:id="@+id/btn_logout"

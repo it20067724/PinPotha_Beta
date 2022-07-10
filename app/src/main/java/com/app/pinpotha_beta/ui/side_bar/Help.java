@@ -5,10 +5,13 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -36,9 +39,9 @@ public class Help extends AppCompatActivity {
     BottomAppBar bottomAppBar;
     FloatingActionButton faButton;
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
-    ImageButton arrow;
-    CardView cardView;
-    LinearLayout hiddenView;
+    ImageButton arrow1,arrow2,arrow3,arrow4;
+    CardView cardView1,chat,email,cardView2,cardView3,cardView4;
+    LinearLayout hiddenView1,hiddenView2,hiddenView3,hiddenView4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +50,20 @@ public class Help extends AppCompatActivity {
         // Assign variable
         bottomAppBar = findViewById(R.id.bottomAppBar);
         faButton = findViewById(R.id.fActionbtn);
-        arrow = findViewById(R.id.arrow_button);
-        hiddenView = findViewById(R.id.hidden_view);
-        cardView = findViewById(R.id.base_cardview);
+        arrow1 = findViewById(R.id.arrow_button1);
+        arrow2 = findViewById(R.id.arrow_button2);
+        arrow3 = findViewById(R.id.arrow_button3);
+        arrow4 = findViewById(R.id.arrow_button4);
+        hiddenView1 = findViewById(R.id.hidden_view1);
+        hiddenView2 = findViewById(R.id.hidden_view2);
+        hiddenView3 = findViewById(R.id.hidden_view3);
+        hiddenView4 = findViewById(R.id.hidden_view4);
+        cardView1 = findViewById(R.id.base_cardview1);
+        cardView2 = findViewById(R.id.base_cardview2);
+        cardView3 = findViewById(R.id.base_cardview3);
+        cardView4 = findViewById(R.id.base_cardview4);
+        chat= findViewById(R.id.chat);
+        email= findViewById(R.id.email);
 
         // Initialize firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
@@ -75,6 +89,46 @@ public class Help extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext()
                         , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 overridePendingTransition(0, 0);
+            }
+        });
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            boolean installed = appInstalledOrNot("com.whatsapp");
+                if (installed){
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+940777178362" + "&text=Hi"));
+                    startActivity(intent);
+               }else {
+                    Toast.makeText(Help.this, "Whats app not installed on your device", Toast.LENGTH_SHORT).show();
+               }
+
+       /*
+                Intent sendIntent = new Intent(); sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Hi");
+                sendIntent.setPackage("com.whatsapp");
+                sendIntent.setType("text/plain"); startActivity(sendIntent);
+ */
+
+            }
+        });
+
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[] {"thilangavinda@gmail.com"});
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Query Related to Pinpotha App");
+             //   intent.putExtra(Intent.EXTRA_TEXT, body.getText().toString());
+            //
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(Help.this, "There is no application that support this action",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -107,33 +161,85 @@ public class Help extends AppCompatActivity {
             return false;
         });
 
-        arrow.setOnClickListener(new View.OnClickListener() {
+        arrow1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                // If the CardView is already expanded, set its visibility
-                //  to gone and change the expand less icon to expand more.
-                if (hiddenView.getVisibility() == View.VISIBLE) {
+                if (hiddenView1.getVisibility() == View.VISIBLE) {
 
-                    // The transition of the hiddenView is carried out
-                    //  by the TransitionManager class.
-                    // Here we use an object of the AutoTransition
-                    // Class to create a default transition.
-                    TransitionManager.beginDelayedTransition(cardView,
+                    TransitionManager.beginDelayedTransition(cardView1,
                             new AutoTransition());
-                    hiddenView.setVisibility(View.GONE);
-                    arrow.setImageResource(R.drawable.expandmore);
+                    hiddenView1.setVisibility(View.GONE);
+                    arrow1.setImageResource(R.drawable.expandmore);
                 }
 
-                // If the CardView is not expanded, set its visibility
-                // to visible and change the expand more icon to expand less.
                 else {
 
-                    TransitionManager.beginDelayedTransition(cardView,
+                    TransitionManager.beginDelayedTransition(cardView1,
                             new AutoTransition());
-                    hiddenView.setVisibility(View.VISIBLE);
-                    arrow.setImageResource(R.drawable.expandless);
+                    hiddenView1.setVisibility(View.VISIBLE);
+                    arrow1.setImageResource(R.drawable.expandless);
                 }
+            }
+        });
+
+        arrow2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (hiddenView2.getVisibility() == View.VISIBLE) {
+
+                    TransitionManager.beginDelayedTransition(cardView1,
+                            new AutoTransition());
+                    hiddenView2.setVisibility(View.GONE);
+                    arrow2.setImageResource(R.drawable.expandmore);
+                }
+
+                else {
+
+                    TransitionManager.beginDelayedTransition(cardView2,
+                            new AutoTransition());
+                    hiddenView2.setVisibility(View.VISIBLE);
+                    arrow2.setImageResource(R.drawable.expandless);
+                }
+            }
+        });
+
+        arrow3.setOnClickListener(view -> {
+
+            if (hiddenView3.getVisibility() == View.VISIBLE) {
+
+                TransitionManager.beginDelayedTransition(cardView3,
+                        new AutoTransition());
+                hiddenView3.setVisibility(View.GONE);
+                arrow3.setImageResource(R.drawable.expandmore);
+            }
+
+            else {
+
+                TransitionManager.beginDelayedTransition(cardView3,
+                        new AutoTransition());
+                hiddenView3.setVisibility(View.VISIBLE);
+                arrow3.setImageResource(R.drawable.expandless);
+            }
+        });
+
+        arrow4.setOnClickListener(view -> {
+
+            if (hiddenView4.getVisibility() == View.VISIBLE) {
+
+                TransitionManager.beginDelayedTransition(cardView4,
+                        new AutoTransition());
+                hiddenView4.setVisibility(View.GONE);
+                arrow4.setImageResource(R.drawable.expandmore);
+            }
+
+            else {
+
+                TransitionManager.beginDelayedTransition(cardView4,
+                        new AutoTransition());
+                hiddenView4.setVisibility(View.VISIBLE);
+                arrow4.setImageResource(R.drawable.expandless);
             }
         });
 
@@ -152,5 +258,19 @@ public class Help extends AppCompatActivity {
     protected void onStop() {
         unregisterReceiver(networkChangeListener);
         super.onStop();
+    }
+
+    private boolean appInstalledOrNot(String url){
+        PackageManager packageManager =getPackageManager();
+        boolean app_installed;
+        try {
+
+            packageManager.getPackageInfo(url,PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        }catch (PackageManager.NameNotFoundException e){
+            Log.d("whatsapp","error:"+e.getMessage());
+            app_installed = false;
+        }
+        return app_installed;
     }
 }

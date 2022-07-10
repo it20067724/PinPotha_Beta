@@ -35,7 +35,7 @@
     <!--END Translate   !-->
 
     <!--Add Record!-->
-    <string name="add_record" translatable="false">Add new Meritorious Deeds</string>
+    <string name="add_record" translatable="false">Add Meritorious Deeds</string>
     <string name="date" translatable="false">Date *</string>
     <string name="date2" translatable="false">Date :</string>
     <string name="description" translatable="false">Description</string>
@@ -79,6 +79,8 @@
     <string name="end_date" translatable="false">Select End Date to Search</string>
     <string name="error_msg_invalid_date" translatable="false">Please select a date before End Date</string>
     <string name="label_no_data" translatable="false">No Data Found</string>
+    <string name="search_result" translatable="false">Search Results</string>
+
 
     <!--END  Search  !-->
 
@@ -110,6 +112,20 @@
     <string name="email" translatable="false">E-mail</string>
     <string name="email_detail" translatable="false">thilangavinda@gmail.com</string>
     <string name="popular" translatable="false">Popular</string>
+    <string name="desc_community" translatable="false">What is Community</string>
+    <string name="ans_community" translatable="false">Community is a Forum where everyone
+        after signing in can answer or ask,Buddhism related questions or doubts and
+        other users can help with the problem.</string>
+    <string name="desc_dhamma_books" translatable="false">What is Dhamma Books</string>
+    <string name="ans_dhamma_books" translatable="false">In Dhamma Books option,
+    links related to popular Dhamma Books can be found</string>
+    <string name="desc_buddhist_events" translatable="false">What is Buddhist Events</string>
+    <string name="ans_buddhist_events" translatable="false">Buddhist Events is a Calender
+    which displays important Buddhist Events in the Year. User also can add events to the Calender</string>
+    <string name="desc_darma_cermon" translatable="false">What is Dharma Sermons</string>
+    <string name="ans_darma_cermon" translatable="false">In Dharma Sermon option,
+    links related to popular Dharma Sermons can be found.
+    </string>
 
 
     <!--END  Help  !-->
