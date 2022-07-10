@@ -10,10 +10,21 @@
     android:padding="16dp"
     tools:context=".ui.side_bar.Help">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar2"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_corner_rectangle"
+        android:layout_gravity="top"
+        app:title="Help" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:paddingTop="55dp"
+        android:paddingBottom="70dp">
+
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
@@ -46,7 +57,9 @@
                        <androidx.cardview.widget.CardView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:padding="5dp"
+                           android:layout_margin="8dp"
+                           app:strokeWidth="1dp"
+                           app:strokeColor="@color/black"
                            app:cardElevation="8dp">
                        <LinearLayout
                            android:layout_width="match_parent"
@@ -83,7 +96,9 @@
                        <androidx.cardview.widget.CardView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:padding="5dp"
+                           android:layout_margin="8dp"
+                           app:strokeWidth="1dp"
+                           app:strokeColor="@color/black"
                            app:cardElevation="8dp">
                        <LinearLayout
                            android:layout_width="match_parent"
@@ -120,7 +135,9 @@
                        <androidx.cardview.widget.CardView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:padding="5dp"
+                           android:layout_margin="8dp"
+                           app:strokeWidth="1dp"
+                           app:strokeColor="@color/black"
                            app:cardElevation="8dp">
 
 
@@ -178,7 +195,10 @@
                android:id="@+id/base_cardview"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:padding="10dp">
+               android:layout_margin="8dp"
+               app:strokeWidth="1dp"
+               app:strokeColor="@color/black"
+               app:cardElevation="8dp">
 
                <LinearLayout
                    android:layout_width="match_parent"
