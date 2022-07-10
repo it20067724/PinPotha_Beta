@@ -10,6 +10,16 @@
     android:padding="16dp"
     tools:context=".ui.records.ViewRecord">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar2"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_corner_rectangle"
+        android:layout_gravity="top"
+        app:title="About us" />
+
+
     <ProgressBar
         android:id="@+id/progressBarview"
         style="?android:attr/progressBarStyle"
@@ -54,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:paddingTop="55dp"
         android:paddingBottom="100dp" />
 
 

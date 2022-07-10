@@ -11,12 +11,20 @@ android:padding="16dp"
 tools:context=".ui.bottom_bar.SideMenu">
 
     <!-- Note: A RecyclerView can also be used -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar2"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_corner_rectangle"
+        android:layout_gravity="top"
+        app:title="@string/app_name" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingBottom="100dp">
+        android:paddingTop="55dp"
+        android:paddingBottom="70dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,13 +98,6 @@ tools:context=".ui.bottom_bar.SideMenu">
                 android:layout_height="wrap_content"
                 android:text="@string/settings"
                 app:icon="@drawable/ic_settings_24dp" />
-
-            <Button
-                android:id="@+id/btn_community"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/community"
-                app:icon="@drawable/ic_community_24dp" />
 
             <Button
                 android:id="@+id/btn_invite"

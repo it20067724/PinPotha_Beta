@@ -10,6 +10,17 @@
     android:padding="16dp"
     tools:context=".ui.side_bar.Settings">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar2"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_corner_rectangle"
+        android:layout_gravity="top"
+        app:title="Settings" />
+
+
+
     <!-- Note: A RecyclerView can also be used -->
     <TextView
         android:id="@+id/textView9"

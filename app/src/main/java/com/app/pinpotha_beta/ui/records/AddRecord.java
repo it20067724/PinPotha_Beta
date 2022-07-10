@@ -249,6 +249,7 @@ public class AddRecord extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pbar.setVisibility(View.VISIBLE);
+                btn_add.setVisibility(View.GONE);
                 String recDate = recdate.getText().toString();
                 String recMain = (String) mainCat.getSelectedItem();
                 String recSub = (String) subCat.getSelectedItem();
