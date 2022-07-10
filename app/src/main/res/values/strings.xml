@@ -95,7 +95,24 @@
     <string name="dittigukamma_help">Development of Right View</string>
     <!--END Help Text    !-->
 
+    <!--Start  Profile!-->
+    <string name="dhamma_books" translatable="false">Dhamma Books</string>
+    <string name="buddhist_events" translatable="false">Buddhist Events</string>
+    <string name="dhamma_cermon" translatable="false">Dharma Sermons</string>
+    <!--END  Profile  !-->
 
+    <!--Start Help !-->
+    <string name="contact" translatable="false">Contact Us</string>
+    <string name="chat" translatable="false">Chat</string>
+    <string name="mobile" translatable="false">+ 94 777178362</string>
+    <string name="address" translatable="false">Address</string>
+    <string name="address_detail" translatable="false">Prasanna,Meemana,Pokunuwita</string>
+    <string name="email" translatable="false">E-mail</string>
+    <string name="email_detail" translatable="false">thilangavinda@gmail.com</string>
+    <string name="popular" translatable="false">Popular</string>
+
+
+    <!--END  Help  !-->
 
 
     <!--Start  !-->
@@ -193,11 +210,13 @@
    With Metta, we are gifting this app to you and hope that you will engage in more
 meritorious deeds and recall them very easily pleasing yourselves. We hope that
 you will use this app with great interest and step closer to the ultimate goal of
-attaining &quot;Nibbana&quot;.
+attaining &quot;Nibbana&quot;. We value your feedback and suggestions regarding this mobile application.
      </string>
     <string name="para4">
 May the Triple Gem Bless you !
      </string>
+    <string name="terms" translatable="false">Terms of Service</string>
+    <string name="policy" translatable="false">Privacy policy</string>
 
     <!--END  About us   !-->
 </resources>

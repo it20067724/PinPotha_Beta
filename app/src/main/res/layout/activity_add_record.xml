@@ -9,6 +9,7 @@
     android:padding="16dp"
     tools:context=".ui.records.AddRecord">
     <!-- Note: A RecyclerView can also be used -->
+
     <ProgressBar
         android:id="@+id/progressBarview"
         style="?android:attr/progressBarStyle"

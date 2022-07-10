@@ -38,7 +38,7 @@ public class SideMenu extends AppCompatActivity {
     // Initialize variable
     ImageView ivImage;
     TextView displayName,display_email,display_last_login;
-    Button btLogout,btSettings,btCommunity,btHelp,btAbout,btIInvFriend;
+    Button btLogout,btSettings,btHelp,btAbout,btIInvFriend;
     FirebaseAuth firebaseAuth;
     GoogleSignInClient googleSignInClient;
     BottomAppBar bottomAppBar;
@@ -56,7 +56,7 @@ public class SideMenu extends AppCompatActivity {
         display_last_login=findViewById(R.id.display_last_login);
         btLogout=findViewById(R.id.btn_logout);
         btSettings=findViewById(R.id.btn_settings);
-        btCommunity=findViewById(R.id.btn_community);
+
         btHelp=findViewById(R.id.btn_help);
         btAbout=findViewById(R.id.btn_about);
         btIInvFriend=findViewById(R.id.btn_invite);
@@ -144,14 +144,7 @@ public class SideMenu extends AppCompatActivity {
             }
         });
 
-        btCommunity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext()
-                        , Communiuty.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                overridePendingTransition(0, 0);
-            }
-        });
+
 
         btHelp.setOnClickListener(new View.OnClickListener() {
                     @Override
