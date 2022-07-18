@@ -3,13 +3,13 @@ package com.app.pinpotha_beta.ui.bottom_bar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import android.widget.Toast;
@@ -33,6 +33,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Search extends AppCompatActivity {
 
@@ -46,6 +47,7 @@ public class Search extends AppCompatActivity {
     TextInputEditText recStartDate, recEndDate;
     Button btnSearch;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +72,9 @@ public class Search extends AppCompatActivity {
         // Check condition
         if (firebaseUser != null) {
             //load details
+            Log.d("user","details available");
         } else {
-            Toast.makeText(getApplicationContext(), "User Not Avialable", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "User Not Available", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -105,21 +108,18 @@ public class Search extends AppCompatActivity {
         //validate from date and to date
 
         btnSearch.setOnClickListener(view -> {
-            String StartDate = recStartDate.getText().toString();
-            String EndDate = recEndDate.getText().toString();
+            String StartDate = Objects.requireNonNull(recStartDate.getText()).toString();
+            String EndDate = Objects.requireNonNull(recEndDate.getText()).toString();
 
             searchRec(StartDate, EndDate);
 
         });
 
 
-        faButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext()
-                        , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                overridePendingTransition(0, 0);
-            }
+        faButton.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext()
+                    , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            overridePendingTransition(0, 0);
         });
 
         bottomAppBar.setOnMenuItemClickListener(menuItem -> {

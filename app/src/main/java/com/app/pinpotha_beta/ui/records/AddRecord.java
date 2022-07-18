@@ -421,11 +421,15 @@ public class AddRecord extends AppCompatActivity {
     private boolean CheckAllFields() {
         if (recdate.length() == 0) {
             recdate.setError(getString(R.string.error_msg_mandatory));
+            pbar.setVisibility(View.GONE);
+            btn_add.setVisibility(View.VISIBLE);
             return false;
         }
 
         if (description.length() > 500) {
             description.setError(getString(R.string.error_msg_max_char));
+            pbar.setVisibility(View.GONE);
+            btn_add.setVisibility(View.VISIBLE);
             return false;
         }
         return true;

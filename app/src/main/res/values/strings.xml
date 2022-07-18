@@ -1,129 +1,149 @@
 <resources>
-    <string name="app_name" translatable="false">Pin Potha - Beta</string>
-    <string name="app_version" translatable="false">App Version : 1.0</string>
+    <string name="app_name">Pin Potha - Beta</string>
+    <string name="app_version">App Version : 1.0</string>
     <!--Bottom Nav  !-->
-    <string name="add" translatable="false">Add</string>
+    <string name="add">Add</string>
     <string name="home" translatable="false">Home</string>
     <string name="content_description_home" translatable="false">Home</string>
-    <string name="search" translatable="false">Search</string>
-    <string name="content_description_search" translatable="false">Search</string>
+    <string name="search">Search</string>
+    <string name="content_description_search">Search</string>
     <string name="sidemenu" translatable="false">Side Menu</string>
     <string name="content_description_sidemenu" translatable="false">Side Menu</string>
     <!--END Bottom Nav  !-->
 
     <!--Side Menu Nav  !-->
-    <string name="sign_out" translatable="false">Sign Out</string>
-    <string name="about" translatable="false">About</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="about">About</string>
     <string name="help">Help</string>
-    <string name="invite" translatable="false">Invite Friends</string>
+    <string name="invite">Invite Friends</string>
     <string name="made_with" translatable="false">Made with </string>
     <string name="in" translatable="false">in</string>
-    <string name="community" translatable="false">Community</string>
-    <string name="settings" translatable="false">Settings</string>
-    <string name="log_out" translatable="false">Log Out</string>
-    <string name="notify" translatable="false">Notification</string>
-    <string name="content_description_notify" translatable="false">Notification</string>
+    <string name="community">Community</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log Out</string>
+    <string name="notify">Notification</string>
+    <string name="content_description_notify">Notification</string>
     <string name="share" translatable="false">Share</string>
     <string name="content_description_share" translatable="false">Share</string>
     <!--END Side Menu Nav   !-->
 
     <!--Translate  !-->
-    <string name="translate" translatable="false">Change Language</string>
+    <string name="translate">Change Language</string>
     <string name="btn_eng" translatable="false">English</string>
     <string name="btn_sin" translatable="false">සිංහල</string>
     <string name="btn_tam" translatable="false">தமிழ்</string>
     <!--END Translate   !-->
 
     <!--Add Record!-->
-    <string name="add_record" translatable="false">Add Meritorious Deeds</string>
-    <string name="date" translatable="false">Date *</string>
-    <string name="date2" translatable="false">Date :</string>
-    <string name="description" translatable="false">Description</string>
-    <string name="mainCat" translatable="false">Ten Meritorious Deeds</string>
-    <string name="subCat" translatable="false">Sub Meritorious Deeds</string>
-    <string name="edit_record" translatable="false">Edit Record</string>
-    <string name="error_msg_mandatory" translatable="false">Please fill this field</string>
-    <string name="error_msg_max_char" translatable="false">Maximum Character Limit Exceeded</string>
+    <string name="add_record">Add Meritorious Deeds</string>
+    <string name="date">Date *</string>
+    <string name="date2">Date :</string>
+    <string name="description">Description</string>
+    <string name="mainCat">Ten Meritorious Deeds</string>
+    <string name="subCat">Sub Meritorious Deeds</string>
+    <string name="edit_record">Edit Record</string>
+    <string name="error_msg_mandatory">Please fill this field</string>
+    <string name="error_msg_max_char">Maximum Character Limit Exceeded</string>
     <!--END Add Record !-->
 
     <!--Start No Connection !-->
-    <string name="oops" translatable="false">Ooops !</string>
-    <string name="no_int" translatable="false">No Internet Connection Found. </string>
-    <string name="chk_con" translatable="false">Check your Connection.</string>
-    <string name="try_again" translatable="false">Try Again</string>
+    <string name="oops">Ooops !</string>
+    <string name="no_int">No Internet Connection Found. </string>
+    <string name="chk_con">Check your Connection.</string>
+    <string name="try_again">Try Again</string>
     <!--END  No Connection  !-->
 
 
     <!--Start  under development!-->
-    <string name="launching_soon" translatable="false">We are Launching Soon!</string>
-    <string name="working_on" translatable="false">We are Currently working on this Option.</string>
+    <string name="launching_soon">We are Launching Soon!</string>
+    <string name="working_on">We are Currently working on this Option.</string>
     <!--END  under development   !-->
 
     <!--Start Home Page !-->
 
-    <string name="welcome_back" translatable="false">Welcome Back !</string>
-    <string name="good_morning" translatable="false">Good Morning ,</string>
-    <string name="good_afternoon" translatable="false">Good Afternoon ,</string>
-    <string name="good_evening" translatable="false">Good Evening ,</string>
-    <string name="good_night" translatable="false">Good Night ,</string>
+    <string name="welcome_back">Welcome Back !</string>
+    <string name="good_morning">Good Morning ,</string>
+    <string name="good_afternoon">Good Afternoon ,</string>
+    <string name="good_evening">Good Evening ,</string>
+    <string name="good_night">Good Night ,</string>
     <!--END   Home Page !-->
 
     <!--Start  Delete Record!-->
-    <string name="msg_are_u_sure" translatable="false">Are You Sure ?</string>
-    <string name="msg_confirm_delete" translatable="false">Do you really want to delete this record?</string>
-    <string name="msg_confirm_delete_canot_be_undone" translatable="false">This process cannot be undone</string>
+    <string name="msg_are_u_sure">Are You Sure ?</string>
+    <string name="msg_confirm_delete">Do you really want to delete this record?</string>
+    <string name="msg_confirm_delete_canot_be_undone">This process cannot be undone</string>
     <!--END  Delete Record  !-->
 
     <!--Start  Search!-->
-    <string name="start_date" translatable="false">Select Start Date to Search</string>
-    <string name="end_date" translatable="false">Select End Date to Search</string>
-    <string name="error_msg_invalid_date" translatable="false">Please select a date before End Date</string>
-    <string name="label_no_data" translatable="false">No Data Found</string>
-    <string name="search_result" translatable="false">Search Results</string>
+    <string name="start_date">Select Start Date to Search</string>
+    <string name="end_date">Select End Date to Search</string>
+    <string name="error_msg_invalid_date">Please select a date before End Date</string>
+    <string name="label_no_data">No Data Found</string>
+    <string name="search_result">Search Results</string>
 
 
     <!--END  Search  !-->
 
     <!--Start Help Text !-->
-    <string name="dana_help">Charity (Alms Giving)</string>
-    <string name="sila_help">Moral Conduct</string>
-    <string name="meditation_help">Meditation</string>
-    <string name="apachayana_help">Paying Reverence to Others</string>
-    <string name="veyyavachcha_help">Rendering Service to Others</string>
-    <string name="prapthi_dana_help">Sharing of Merit</string>
-    <string name="paththanumodana_help">Rejoicing in Others’ Merit </string>
-    <string name="darmashrawana_help">Listening to Dhamma</string>
-    <string name="darmadeshana_help">Expounding of Dhamma</string>
-    <string name="dittigukamma_help">Development of Right View</string>
+    <string name="dana_help">Dāna or Charity (Alms Giving) is the act of giving for the betterment of others.
+        When a person gives his or her possessions to the noble beings who are more virtuous including
+        the Lord Buddha and the Sangha, such act is called as an “Offering”.
+        Alms can also be classified as Alms of Material, Alms of Life, and Alms of Dhamma.</string>
+    <string name="sila_help">Sīla or Moral Conduct is the refrainment from unwholesome acts and protection
+        of precepts declared by the Lord Buddha.</string>
+    <string name="meditation_help">Bhāvanā  or Meditation is the development of Concentration and Wisdom.
+        The development of concentration is called as Concentration Meditation (Samatha Bhāvanā)
+        and the development of wisdom is called as Insight Meditation (Vipassanā Bhāvanā).
+        The meditation can also be defined as the development of “Thirty-Seven Requisites of Enlightenment”
+        (Sattatiṁsā Bodhipakkhiyadhammā), namely the Four Foundations of Mindfulness
+        (Cattāro Satipaṭṭhāna), the Four Right Strivings (Cattāro Sammappadhāna),
+        the Four Bases of Spiritual Power (Cattāro Iddhipāda), the Five Faculties (Pañca Indriya),
+        the Five Strengths (Pañca Bala), the Seven Factors of Enlightenment (Satta Bojjhaṅgā),
+        and the Noble Eightfold Path (Ariyo Aṭṭhaṅgiko Maggo).
+        Meditation is the highest merit amongst all the other merits</string>
+    <string name="apachayana_help">Apacāyana is the act of paying reverence to people or objects
+        who/which deserve to be respected. One can respect by body, by word, and by mind. </string>
+    <string name="veyyavachcha_help">Veyyāvacca is the act of rendering service to people who are deserved.</string>
+    <string name="prapthi_dana_help">Pattidāna is the act of sharing of merits gathered by a person to others.</string>
+    <string name="paththanumodana_help">Pattāanumodana is the act of rejoicing in merits shared by others and
+        rejoicing by listening to or seeing others’ meritorious deeds.</string>
+    <string name="darmashrawana_help">Dhammassavana is the meritorious deed of listening
+        to the noble dhamma preached by the Lord Buddha with utmost respect.</string>
+    <string name="darmadeshana_help">Dhammadesanā is the meritorious deed of delivering dhamma
+        or sponsoring dhamma sermons with the sole
+        intention of relieving all beings from suffering without expecting a profit or fame. </string>
+    <string name="dittigukamma_help">Dhiṭṭhijukamma is the development and purifying of Right
+        View (Sammā Diṭṭhi). This involves the believing of Merits and Demerits,
+        Actions and their Consequences (Kamma-Vipāka), Rebirth, etc. </string>
     <!--END Help Text    !-->
 
     <!--Start  Profile!-->
-    <string name="dhamma_books" translatable="false">Dhamma Books</string>
-    <string name="buddhist_events" translatable="false">Buddhist Events</string>
-    <string name="dhamma_cermon" translatable="false">Dharma Sermons</string>
+    <string name="dhamma_books">Dhamma Books</string>
+    <string name="buddhist_events">Buddhist Events</string>
+    <string name="dhamma_cermon">Dharma Sermons</string>
     <!--END  Profile  !-->
 
     <!--Start Help !-->
-    <string name="contact" translatable="false">Contact Us</string>
-    <string name="chat" translatable="false">Chat</string>
+    <string name="contact">Contact Us</string>
+    <string name="chat">Chat</string>
     <string name="mobile" translatable="false">+ 94 777178362</string>
-    <string name="address" translatable="false">Address</string>
-    <string name="address_detail" translatable="false">Prasanna,Meemana,Pokunuwita</string>
-    <string name="email" translatable="false">E-mail</string>
+    <string name="address">Address</string>
+    <string name="address_detail">Prasanna,Meemana,Pokunuwita</string>
+    <string name="email">E-mail</string>
     <string name="email_detail" translatable="false">thilangavinda@gmail.com</string>
-    <string name="popular" translatable="false">Popular</string>
-    <string name="desc_community" translatable="false">What is Community</string>
-    <string name="ans_community" translatable="false">Community is a Forum where everyone
+    <string name="popular">Popular</string>
+    <string name="desc_community">What is Community</string>
+    <string name="ans_community">Community is a Forum where everyone
         after signing in can answer or ask,Buddhism related questions or doubts and
         other users can help with the problem.</string>
-    <string name="desc_dhamma_books" translatable="false">What is Dhamma Books</string>
-    <string name="ans_dhamma_books" translatable="false">In Dhamma Books option,
+    <string name="desc_dhamma_books">What is Dhamma Books</string>
+    <string name="ans_dhamma_books">In Dhamma Books option,
     links related to popular Dhamma Books can be found</string>
-    <string name="desc_buddhist_events" translatable="false">What is Buddhist Events</string>
-    <string name="ans_buddhist_events" translatable="false">Buddhist Events is a Calender
+    <string name="desc_buddhist_events">What is Buddhist Events</string>
+    <string name="ans_buddhist_events">Buddhist Events is a Calender
     which displays important Buddhist Events in the Year. User also can add events to the Calender</string>
-    <string name="desc_darma_cermon" translatable="false">What is Dharma Sermons</string>
-    <string name="ans_darma_cermon" translatable="false">In Dharma Sermon option,
+    <string name="desc_darma_cermon">What is Dharma Sermons</string>
+    <string name="ans_darma_cermon">In Dharma Sermon option,
     links related to popular Dharma Sermons can be found.
     </string>
 
@@ -135,17 +155,18 @@
     <!--END    !-->
 
 
-    <string name="anonymous" translatable="false">Anonymous</string>
-    <string name="loading" translatable="false">Loading</string>
-    <string name="update" translatable="false">Update</string>
-    <string name="delete" translatable="false">Delete</string>
+    <string name="language">Language</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="loading">Loading</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
     <string name="welcome">Welcome</string>
-    <string name="hello" translatable="false">Record your good Deeds</string>
-    <string name="seamless" translatable="false">Seamlessly</string>
+    <string name="hello">Record your good Deeds</string>
+    <string name="seamless">Seamlessly</string>
     <string name="na">-</string>
-    <string name="btn_yes" translatable="false">Yes</string>
-    <string name="btn_no" translatable="false">No</string>
-    <string name="btn_ok" translatable="false">OK</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+    <string name="btn_ok">OK</string>
 
 
     <!--Dropdown Main!-->
@@ -229,8 +250,9 @@ attaining &quot;Nibbana&quot;. We value your feedback and suggestions regarding 
     <string name="para4">
 May the Triple Gem Bless you !
      </string>
-    <string name="terms" translatable="false">Terms of Service</string>
-    <string name="policy" translatable="false">Privacy policy</string>
+    <string name="terms">Terms of Service</string>
+    <string name="policy">Privacy policy</string>
+    <string name="last_login">"Last Login : "</string>
 
     <!--END  About us   !-->
 </resources>

@@ -18,7 +18,7 @@
         android:layout_height="50dp"
         android:background="@drawable/round_corner_rectangle"
         android:layout_gravity="top"
-        app:title="Community" />
+        app:title="@string/community" />
 
 
 

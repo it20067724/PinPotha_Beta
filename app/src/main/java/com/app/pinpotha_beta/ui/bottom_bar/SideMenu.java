@@ -3,6 +3,7 @@ package com.app.pinpotha_beta.ui.bottom_bar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -17,7 +18,6 @@ import com.app.pinpotha_beta.MainActivity;
 import com.app.pinpotha_beta.R;
 import com.app.pinpotha_beta.ui.records.AddRecord;
 import com.app.pinpotha_beta.ui.side_bar.About;
-import com.app.pinpotha_beta.ui.side_bar.Communiuty;
 import com.app.pinpotha_beta.ui.side_bar.Help;
 import com.app.pinpotha_beta.ui.side_bar.Settings;
 import com.app.pinpotha_beta.ui.ketayam.NetworkChangeListener;
@@ -33,6 +33,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class SideMenu extends AppCompatActivity {
 
     // Initialize variable
@@ -45,6 +47,7 @@ public class SideMenu extends AppCompatActivity {
     FloatingActionButton faButton;
     NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +89,7 @@ public class SideMenu extends AppCompatActivity {
             //
             //long value handle null pointer and display using epoxy converter
            // firebaseUser.getMetadata().getLastSignInTimestamp();
-            display_last_login.setText("Last Login : "+TimeData.getEpochTime(firebaseUser.getMetadata().getLastSignInTimestamp()));
+            display_last_login.setText(getString(R.string.last_login)+TimeData.getEpochTime(Objects.requireNonNull(firebaseUser.getMetadata()).getLastSignInTimestamp()));
             //getUid() returns the unique id at db
 
         }
@@ -96,73 +99,55 @@ public class SideMenu extends AppCompatActivity {
                 , GoogleSignInOptions.DEFAULT_SIGN_IN);
 
         //logout button onClick
-        btLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Sign out from google
-                googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // Check condition
-                        if(task.isSuccessful())
-                        {
-                            // When task is successful
-                            // Sign out from firebase
-                            firebaseAuth.signOut();
-                            Intent intent = new Intent(SideMenu.this, MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+        btLogout.setOnClickListener(view -> {
+            // Sign out from google
+            googleSignInClient.signOut().addOnCompleteListener(task -> {
+                // Check condition
+                if(task.isSuccessful())
+                {
+                    // When task is successful
+                    // Sign out from firebase
+                    firebaseAuth.signOut();
+                    Intent intent = new Intent(SideMenu.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
 
-                            // Display Toast
-                            Toast.makeText(getApplicationContext(), "Logout successful", Toast.LENGTH_SHORT).show();
+                    // Display Toast
+                    Toast.makeText(getApplicationContext(), "Logout successful", Toast.LENGTH_SHORT).show();
 
-                            // Finish activity
-                            finish();
-                        }
-                    }
-                });
-            }
+                    // Finish activity
+                    finish();
+                }
+            });
         });
 
         //float buttton on click
-        faButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext()
-                        , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                overridePendingTransition(0, 0);
-            }
+        faButton.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext()
+                    , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            overridePendingTransition(0, 0);
         });
 
         //Settings buttton on click
-        btSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext()
-                        , Settings.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                overridePendingTransition(0, 0);
-            }
+        btSettings.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext()
+                    , Settings.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            overridePendingTransition(0, 0);
         });
 
 
 
-        btHelp.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(getApplicationContext()
-                                , Help.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                        overridePendingTransition(0, 0);
-                    }
-                });
+        btHelp.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext()
+                    , Help.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            overridePendingTransition(0, 0);
+        });
 
-        btAbout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(getApplicationContext()
-                                , About.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                        overridePendingTransition(0, 0);
-                    }
-                });
+        btAbout.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext()
+                    , About.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            overridePendingTransition(0, 0);
+        });
 
 
 

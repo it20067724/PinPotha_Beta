@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PinPotha - Beta</string>
+    <string name="app_name">පිං පොත - Beta</string>
     <string name="help">උදව්</string>
     <string name="na">-</string>
     <string name="welcome">ආයුබෝවන්</string>
 
     <!--Start Help Text !-->
-    <string name="dana_help">දානය</string>
-    <string name="sila_help">සීලය</string>
-    <string name="meditation_help">භාවනාව</string>
-    <string name="apachayana_help">සුදුස්සන්ට ගෞරව දැක්වීම</string>
-    <string name="veyyavachcha_help">සුදුස්සන්ට වතාවත් කිරීම</string>
-    <string name="prapthi_dana_help">පින් අනුමෝදන් කිරීම</string>
-    <string name="paththanumodana_help">පින් අනුමෝදන් වීම</string>
-    <string name="darmashrawana_help">ධර්ම ශ්‍ර‍වණය</string>
-    <string name="darmadeshana_help">ධර්ම දේශනය</string>
-    <string name="dittigukamma_help">සම්මා දිට්ඨිය දියුණු  කරගැනීම</string>
+    <string name="dana_help">තමා හට අයත් වස්තුවක් අන් අයගේ යහපත උදෙසා පරිත්‍යාග කිරීම දානය ය.
+        ගුණයෙන් තමාට වඩා උසස් වූ බුද්ධාදි උතුමන් වහන්සේලාට දන් දෙන කල්හි එය “පූජා” නමින් හැඳින්වේ.
+        ආමිස දානය, අභය දානය සහ ධර්ම දානය යනුවෙන් තෙවැදෑරුම් ලෙසද දානය දැක්විය හැක.</string>
+    <string name="sila_help">පාප ක්‍රියාවලින් වැළකීම, බුදුරජාණන් වහන්සේ විසින් පනවන ලද ශික්‍ෂා පද රැකීම
+        සහ වත් පිළිවෙත් කිරීම සීලය යනුවෙන් හැඳින්වේ.</string>
+    <string name="meditation_help">සමාධිය සහ ප්‍ර‍ඥාව දියුණු කිරීම භාවනාව ය.
+        සමථ (සමාධිය දියුණු කිරීම) සහ විදර්ශනා (ප්‍ර‍ඥාව දියුණු කිරීම) යනුවෙන් භාවනාව දෙවැදෑරුම් වේ.
+        තවත් ආකාරයකින් අර්ථ දැක්වුවහොත් සතර සතිපට්ඨාන ය, සතර සම්‍යක් ප්‍ර‍ධාන ය, සතර සෘද්ධිපාද ය,
+        පඤ්චේන්ද්‍රිය ය, පඤ්ච බලය ය, සප්ත බෝධ්‍යඞ්ගය ය සහ ආර්‍ය්‍යාෂ්ඨාංගික මාර්ගය ය යන සත්
+        තිස් බෝධිපාක්ෂික ධර්මයන් වැඩීම භාවනාව ය.
+        භාවනාව සියලු කුශලයන් අතුරෙන් අග්‍ර‍ වූ කුශලය වේ. </string>
+    <string name="apachayana_help">අපචායනය යනු සුදුසු පුද්ගලයන්ට හා වස්තූන්ට ගෞරව කිරීම ය.
+        ගරු කිරීම කයින්, වචනයෙන් සහ සිතින් යන තුන් ආකාරයෙන් සිදු කල හැක.</string>
+    <string name="veyyavachcha_help">වෙය්‍යාවච්චය යනු සුදුසු පුද්ගලයන්ට වතාවත් කිරීමේ කුශලය ය.</string>
+    <string name="prapthi_dana_help">තමා විසින් සිදු කරන්නට වන්නා වූ කුසලය අන්‍යයන්ට අනුමෝදන් කිරීම ප්‍රාප්තිදාන
+        හෙවත් පින් අනුමෝදන් කිරීම නම් වේ</string>
+    <string name="paththanumodana_help">පඅන්‍යයන් විසින් අනුමෝදන් කරන සහ අන්‍යයන් විසින් සිදු කරන
+        පින් අසා හෝ දැක සතුටින් පිළිගැනීම පත්තානුමෝදනාව හෙවත් පින් අනුමෝදන් වීම නම් වේ.</string>
+    <string name="darmashrawana_help">භාග්‍යවතුන් වහන්සේ විසින් දේශිත අති උත්තරීතර වූ ධර්මය
+        අති ගෞරවයෙන් යුතුව ඇසීම ධර්ම ශ්‍ර‍වණ කුශලය ය.</string>
+    <string name="darmadeshana_help">ලාභාපේක්ෂාවෙන් තොරව කරුණාබරිත සිතින් යුක්තව ලෝකසත්වයන්
+        දුකින් මිදවීමේ අදහසින්
+        භාග්‍යවතුන් වහන්සේගේ ශ්‍රී සද්ධර්මය දේශනා කිරීම හා කරවීම ධර්ම දේශනා කුශලය ය.</string>
+    <string name="dittigukamma_help">කුසල් අකුසල්, කර්ම ඵල, පුනර්භවය යනාදීන් ඇතුළු කොට ඇති සම්මා
+        දිට්ඨිය ඇති කර ගැනීම සහ ඇති කර ගත් සම්මා දිට්ඨිය පිරිසිදු කර ගැනීම දිට්ඨිජ්ජුකම්ම කුශලය වේ.</string>
     <!--END Help Text    !-->
 
 
@@ -102,6 +117,77 @@
     <string name="para4">
 තෙරුවන් සරණයි !
      </string>
+    <string name="language">භාෂාව</string>
+    <string name="app_version" >යෙදුම් පිටපත : 1.0</string>
+    <string name="add" translatable="false">එකතු කරන්න</string>
+    <string name="search" translatable="false">සොයන්න</string>
+    <string name="content_description_search" translatable="false">සොයන්න</string>
+    <string name="sign_out" translatable="false">ඉවත් වන්න</string>
+    <string name="about" translatable="false">අප ගැන</string>
+    <string name="invite" translatable="false">මිතුරන්ට ආරාධනා කරන්න</string>
+    <string name="community">ප්‍රජාව</string>
+    <string name="settings" translatable="false">සැකසුම්</string>
+    <string name="log_out" translatable="false">ඉවත් වන්න</string>
+    <string name="notify" translatable="false">දැනුම්දීම</string>
+    <string name="content_description_notify" translatable="false">දැනුම්දීම</string>
+    <string name="translate" translatable="false">" භාෂාව වෙනස් කරන්න"</string>
+    <string name="add_record" translatable="false">පින් දහම් එකතු කරන්න</string>
+    <string name="date" translatable="false">දිනය *</string>
+    <string name="date2" translatable="false">" දිනය :"</string>
+    <string name="description" translatable="false">විස්තරය</string>
+    <string name="mainCat" translatable="false">දස කුසල කර්ම</string>
+    <string name="subCat" translatable="false">අනු කුසල කර්ම</string>
+    <string name="edit_record" translatable="false">සංස්කරණය කරන්න</string>
+    <string name="error_msg_mandatory" translatable="false">" කරුණාකර මෙම ක්ෂේත්‍රය පුරවන්න"</string>
+    <string name="error_msg_max_char" translatable="false">" උපරිම අක්ෂර සීමාව ඉක්මවා ඇත"</string>
+    <string name="no_int" translatable="false">අන්තර්ජාල සම්බන්ධතාවක් හමු නොවිණි.</string>
+    <string name="oops" translatable="false">" අපොයි!"</string>
+    <string name="chk_con" translatable="false">ඔබගේ සම්බන්ධතාවය පරීක්ෂා කරන්න.</string>
+    <string name="try_again" translatable="false">නැවත උත්සහා කරන්න</string>
+    <string name="launching_soon" translatable="false">අපි ඉක්මනින් දියත් කරනවා!</string>
+    <string name="working_on" translatable="false">අපි දැනට මෙම විකල්පය මත වැඩ කරමින් සිටිමු.</string>
+    <string name="welcome_back" translatable="false">තෙරුවන් සරණයි !</string>
+    <string name="good_morning" translatable="false">" සුභ උදෑසනක් ,"</string>
+    <string name="good_afternoon" translatable="false">සුභ සන්ධ්යාවක් ,</string>
+    <string name="good_evening" translatable="false">සුභ සන්ද්යාවක් ,</string>
+    <string name="good_night" translatable="false">සුභ රාත්රියක් ,</string>
+    <string name="msg_are_u_sure" translatable="false">ඔබට විශ්වාසද ?</string>
+    <string name="msg_confirm_delete" translatable="false">ඔබට ඇත්තටම මෙම වාර්තාව මැකීමට අවශ්‍යද?</string>
+    <string name="start_date" translatable="false">සෙවීමට, ආරම්භක දිනය තෝරන්න</string>
+    <string name="msg_confirm_delete_canot_be_undone" translatable="false">" මෙම ක්‍රියාවලිය ආපසු හැරවිය නොහැක"</string>
+    <string name="end_date" translatable="false">" සෙවීමට, අවසන් දිනය තෝරන්න"</string>
+    <string name="error_msg_invalid_date" translatable="false">" කරුණාකර අවසන් දිනයට පෙර දිනයක් තෝරන්න"</string>
+    <string name="search_result" translatable="false">සෙවුම් ප්‍රතිඵල</string>
+    <string name="label_no_data" translatable="false">" දත්ත නොමැත"</string>
+    <string name="dhamma_books" translatable="false">දහම් පොත්</string>
+    <string name="buddhist_events" translatable="false">බෞද්ධ සිදුවීම්</string>
+    <string name="dhamma_cermon" translatable="false">" ධර්ම දේශනා"</string>
+    <string name="chat" translatable="false">කතාබස් කරන්න</string>
+    <string name="contact" translatable="false">" අපව අමතන්න"</string>
+    <string name="address" translatable="false">ලිපිනය</string>
+    <string name="address_detail" translatable="false">ප්‍රසන්න, මීමන , පොකුණුවිට</string>
+    <string name="email" translatable="false">විද්යුත් තැපෑල</string>
+    <string name="popular" translatable="false">ජනප්රිය</string>
+    <string name="desc_community" translatable="false">Community යනු කුමක්ද</string>
+    <string name="ans_community" translatable="false">Community යනු හැමෝම ඉන්න Forum එකක්. පුරනය වීමෙන් පසු බුදුදහම සම්බන්ධ ප්‍රශ්න හෝ සැකයන් සහ වෙනත් පරිශීලකයින්ගේ ගැටලු  සමඟ උදව් කළ හැකිය.</string>
+    <string name="desc_dhamma_books" translatable="false">දහම් පොත් යනු කුමක්ද?</string>
+    <string name="ans_dhamma_books" translatable="false">ඔබට  ජනප්‍රිය ධර්ම ග්‍රන්ථ සම්බන්ධ සබැඳි සොයා ගත හැක</string>
+    <string name="desc_buddhist_events" translatable="false">" බෞද්ධ සිදුවීම් යනු කුමක්ද"</string>
+    <string name="ans_buddhist_events" translatable="false">බෞද්ධ සිදුවීම් යනු දින දර්ශනයකි     එය වසරේ වැදගත් බෞද්ධ සිද්ධීන් ප්‍රදර්ශනය කරයි. පරිශීලකයාට දින දර්ශනයට සිදුවීම් එකතු කළ හැකිය</string>
+    <string name="desc_darma_cermon" translatable="false">ධර්ම දේශනා යනු කුමක්ද</string>
+    <string name="ans_darma_cermon" translatable="false">ඔබට ජනප්‍රිය ධර්ම දේශනා සම්බන්ධ සබැඳි සොයා ගත හැක.</string>
+    <string name="anonymous" translatable="false">නිර්නාමික</string>
+    <string name="loading" translatable="false">පුරනය වේ</string>
+    <string name="update" translatable="false">යාවත්කාලීන කරන්න</string>
+    <string name="delete" translatable="false">" මකන්න"</string>
+    <string name="hello" translatable="false">"ඔබගේ යහපත් ක්‍රියා සටහන් "</string>
+    <string name="seamless">කරන්න</string>
+    <string name="btn_yes" translatable="false">" ඔව්"</string>
+    <string name="btn_no">නැත</string>
+    <string name="btn_ok" translatable="false">හරි</string>
+    <string name="terms" translatable="false">සේවා කොන්දේසි</string>
+    <string name="policy" translatable="false">" රහස්යතා ප්රතිපත්තිය"</string>
+    <string name="last_login" translatable="false">අවසාන පිවිසුම :</string>
     <!--END  About us   !-->
 
 </resources>

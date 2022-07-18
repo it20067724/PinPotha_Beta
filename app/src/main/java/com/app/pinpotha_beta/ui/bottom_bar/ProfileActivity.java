@@ -4,12 +4,11 @@ package com.app.pinpotha_beta.ui.bottom_bar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.app.pinpotha_beta.R;
@@ -25,6 +24,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class ProfileActivity extends AppCompatActivity {
     // Initialize variable
 
@@ -36,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView greeting;
     CardView btCommunity;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,29 +58,27 @@ public class ProfileActivity extends AppCompatActivity {
         if(firebaseUser!=null)
         {
            //load details
+            greeting.setText(TimeData.getGreeting(Objects.requireNonNull(firebaseUser.getDisplayName()),
+                    getString(R.string.good_morning),
+                    getString(R.string.good_afternoon),
+                    getString(R.string.good_evening),
+                    getString(R.string.good_night)
+            ));
         }
         else{
-            Toast.makeText(getApplicationContext(), "User Not Avialable", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "User Not Available", Toast.LENGTH_SHORT).show();
         }
 
-        greeting.setText(TimeData.getGreeting(firebaseUser.getDisplayName(),
-                getString(R.string.good_morning),
-                getString(R.string.good_afternoon),
-                getString(R.string.good_evening),
-                getString(R.string.good_night)
-        ));
+
 
         // Initialize sign in client
         googleSignInClient= GoogleSignIn.getClient(ProfileActivity.this
                 , GoogleSignInOptions.DEFAULT_SIGN_IN);
 
-        faButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext()
-                        , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                overridePendingTransition(0, 0);
-            }
+        faButton.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext()
+                    , AddRecord.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            overridePendingTransition(0, 0);
         });
 
         bottomAppBar.setOnMenuItemClickListener(menuItem->{
@@ -107,13 +107,10 @@ public class ProfileActivity extends AppCompatActivity {
             return false;
         });
 
-        btCommunity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext()
-                        , Communiuty.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                overridePendingTransition(0, 0);
-            }
+        btCommunity.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext()
+                    , Communiuty.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            overridePendingTransition(0, 0);
         });
     }
 
